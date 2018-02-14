@@ -8,11 +8,11 @@
           <span slot="badge" v-if=props.item.ipv6>v6</span>
         </v-badge>
       </td>
-      <td>{{ props.item.description }}
+      <td class="hidden-xs-only">{{ props.item.description }}
           <v-icon color=pink small v-if="!props.item.nofilter">block</v-icon>
       </td>
-      <td align=center><v-icon color=blue v-if=props.item.dnssec>lock</v-icon></td>
-      <td align=center><v-icon color=red v-if="!props.item.nolog">warning</v-icon></td>
+      <td class="hidden-sm-and-down" align=center><v-icon color=blue v-if=props.item.dnssec>lock</v-icon></td>
+      <td class="hidden-sm-and-down" align=center><v-icon color=red v-if="!props.item.nolog">warning</v-icon></td>
     </template>
   </v-data-table>
 </template>
@@ -41,15 +41,27 @@ export default {
       items: [],
       errors: [],
       headers: [
+        { text: "Name", align: "left", sortable: true, value: "name" },
         {
-          text: "Name",
-          align: "left",
-          sortable: true,
-          value: "name"
+          text: "Description",
+          sortable: false,
+          value: "description",
+          class: "hidden-xs-only"
         },
-        { text: "Description", sortable: false, value: "description" },
-        { text: "DNSSEC", align: "center", sortable: true, value: "dnssec" },
-        { text: "Logging", align: "center", sortable: true, value: "nolog" }
+        {
+          text: "DNSSEC",
+          align: "center",
+          sortable: true,
+          value: "dnssec",
+          class: "hidden-sm-and-down"
+        },
+        {
+          text: "Logging",
+          align: "center",
+          sortable: true,
+          value: "nolog",
+          class: "hidden-sm-and-down"
+        }
       ]
     };
   }
