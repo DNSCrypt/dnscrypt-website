@@ -10,9 +10,11 @@ It is an open specification, with free and open source reference implementations
 
 ## What is DNS?
 
-DNS is the Domain Name System that translates URLs like `www.google.com` into an IP address e.g. `216.58.199.36`
+DNS is a globally distributed database that maps names to values.
 
-The protocol was invented a long time ago when the internet environment was less hostile.
+It typically translates names such as `www.google.com` into IP addresses such as `216.58.199.36`.
+
+The protocol was invented a long time ago when the Internet environment was less hostile.
 
 So what is the Problem?
 
