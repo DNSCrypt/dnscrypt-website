@@ -10,15 +10,18 @@ It is an open specification, with free and open source reference implementations
 
 ## What is DNS?
 
-DNS is a globally distributed database that maps names to values.
+DNS is a globally distributed database that maps names to values. It is constantly used by all applications communicating over the Internet and private networks.
 
-It typically translates names such as `www.google.com` into IP addresses such as `216.58.199.36`.
+It typically translates names such as `www.google.com` into IP addresses such as `216.58.199.36`, so that devices can determine the path to follow in order to communicate with each other.
 
-The protocol was invented a long time ago when the Internet environment was less hostile.
+So what is the problem?
 
-So what is the Problem?
+Originally, the DNS protocol didn't include any encryption nor authentication mechanisms;
+any device between a client and a DNS server could monitor and interfere with DNS traffic, without this being detected by the client.
 
-The DNS traffic is in plain text and can be manipulated by a [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), malicious resolver or used to collect data about the browsing habits of a client. In light of this DNSSEC was deployed and other protocols are being developed to increase the security.
+Attackers on a local network can abuse this to conduct trivial attacks. More recently, malicious DNS servers have been massively used by malware.
+
+The DNS security system (DNSSEC) was designed to partially mitigate this design flaw, by adding digital signatures to DNS responses.
 
 <v-container text-xs-center>
   <img alt="DNS" src="../assets/DNS.png"/>
@@ -28,7 +31,9 @@ The DNS traffic is in plain text and can be manipulated by a [MITM](https://en.w
 
 DNSSEC is a DNS Extension that allows a client to validate the DNS response on supported domains and TLDs.
 
-The resolver checks the digital signature of the DNS responses from the Authoritative Name Server to check that the data unmodified and complete. While this adds security to the DNS system it does not provide any increased privacy.
+Resolvers check the digital signature of DNS responses to verify that the data match what the zone owner initially configured.
+
+Unfortunately, DNSSEC has received little adoption yet, remains incompatible with some devices and software pieces, and doesn't prevent the traffic from being monitored.
 
 <v-container text-xs-center>
   <img alt="DNSSEC" src="../assets/DNS-DNSSEC.png"/>
