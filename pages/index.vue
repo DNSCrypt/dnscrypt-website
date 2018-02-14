@@ -1,6 +1,6 @@
 <template lang=md>
 <v-container text-xs-center>
-  <img src="../assets/dnscrypt.png"/>
+  <img class=fill-width src="../assets/dnscrypt.png"/>
 </v-container>
 
 DNSCrypt is a protocol that authenticates communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.

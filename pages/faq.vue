@@ -24,7 +24,7 @@ Attackers on a local network can abuse this to conduct trivial attacks. More rec
 The DNS security system (DNSSEC) was designed to partially mitigate this design flaw, by adding digital signatures to DNS responses.
 
 <v-container text-xs-center>
-  <img alt="DNS" src="../assets/DNS.png"/>
+  <img class=fill-width alt="DNS" src="../assets/DNS.png"/>
 </v-container>
 
 ## What is DNSSEC
@@ -36,7 +36,7 @@ Resolvers check the digital signature of DNS responses to verify that the data m
 Unfortunately, DNSSEC has received little adoption yet, remains incompatible with some devices and software pieces, and doesn't prevent the traffic from being monitored.
 
 <v-container text-xs-center>
-  <img alt="DNSSEC" src="../assets/DNS-DNSSEC.png"/>
+  <img class=fill-width alt="DNSSEC" src="../assets/DNS-DNSSEC.png"/>
 </v-container>
 
 ## Why use DNSCrypt?
@@ -60,7 +60,7 @@ Unfortunately, DNSSEC has received little adoption yet, remains incompatible wit
 * <v-icon color=red>thumb_down</v-icon> Does not have an RFC
 
 <v-container text-xs-center>
-  <img alt="DNSCrypt with DNSSEC" src="../assets/DNSCrypt-DNSSEC.png"/>
+  <img class=fill-width alt="DNSCrypt with DNSSEC" src="../assets/DNSCrypt-DNSSEC.png"/>
 </v-container>
 
 ## How do I get started with using DNSCrypt?
