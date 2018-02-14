@@ -11,7 +11,7 @@
       <td class="hidden-xs-only">{{ props.item.description }}
           <v-icon color=pink small v-if="!props.item.nofilter">block</v-icon>
       </td>
-      <td class="hidden-sm-and-down" align=center><v-icon color=blue v-if=props.item.dnssec>lock</v-icon></td>
+      <td align=center><v-icon color=blue v-if=props.item.dnssec>lock</v-icon></td>
       <td class="hidden-sm-and-down" align=center><v-icon color=red v-if="!props.item.nolog">warning</v-icon></td>
     </template>
   </v-data-table>
@@ -52,8 +52,7 @@ export default {
           text: "DNSSEC",
           align: "center",
           sortable: true,
-          value: "dnssec",
-          class: "hidden-sm-and-down"
+          value: "dnssec"
         },
         {
           text: "Logging",

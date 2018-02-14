@@ -3,7 +3,6 @@
         <v-toolbar-title><v-btn flat class="primary" router nuxt to="/"><img src="~/assets/dnscrypt-small.png" height="42px" align="middle"/></v-btn></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-menu offset-y open-on-hover>
-            <v-toolbar-side-icon slot="activator" class="hidden-md-and-up"></v-toolbar-side-icon>
             <v-list>
                 <v-list-tile router nuxt to="/">
                     <v-list-tile-title>Encrypted DNS</v-list-tile-title>
@@ -24,6 +23,7 @@
                     <v-list-tile-title>Stamps</v-list-tile-title>
                 </v-list-tile>
             </v-list>
+            <v-toolbar-side-icon slot="activator" class="hidden-md-and-up"></v-toolbar-side-icon>
         </v-menu>
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn flat router nuxt to="/implementations">Implementations</v-btn>
