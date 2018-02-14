@@ -42,14 +42,14 @@ Unfortunately, DNSSEC has received little adoption yet, remains incompatible wit
 ## Why use DNSCrypt?
 
 * <v-icon color=green>thumb_up</v-icon> Encrypts and authenticates the DNS traffic
-* <v-icon color=green>thumb_up</v-icon> Especially designed for DNS
-* <v-icon color=green>thumb_up</v-icon> It has been around a while, so has been battle tested
+* <v-icon color=green>thumb_up</v-icon> Specifically designed for DNS
+* <v-icon color=green>thumb_up</v-icon> Has been battle tested
 * <v-icon color=green>thumb_up</v-icon> A good amount of servers support the protocol
 * <v-icon color=green>thumb_up</v-icon> Includes mitigations against DNS amplification attacks
-* <v-icon color=green>thumb_up</v-icon> Can use UDP or TCP for transport
+* <v-icon color=green>thumb_up</v-icon> Can use UDP and TCP for transport
 * <v-icon color=green>thumb_up</v-icon> Inherently supports reordering, parallelism and priorities
 * <v-icon color=green>thumb_up</v-icon> Keeps a minimal number of states server-side
-* <v-icon color=green>thumb_up</v-icon> Very simple to implement
+* <v-icon color=green>thumb_up</v-icon> Very simple to implement; requires only two standard cryptographic constructions
 * <v-icon color=green>thumb_up</v-icon> Doesn't require a TLS stack, which vastly reduces the attack surface
 * <v-icon color=green>thumb_up</v-icon> Doesn't have any insecure parameters
 * <v-icon color=green>thumb_up</v-icon> Doesn't rely on X509 certificates and Certificate Authorities
