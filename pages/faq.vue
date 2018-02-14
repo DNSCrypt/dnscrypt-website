@@ -16,12 +16,11 @@ It typically translates names such as `www.google.com` into IP addresses such as
 
 So what is the problem?
 
-Originally, the DNS protocol didn't include any encryption nor authentication mechanisms;
-any device between a client and a DNS server could monitor and interfere with DNS traffic, without this being detected by the client.
+Originally, the DNS protocol didn't include any encryption nor authentication mechanisms; any device between a client and a DNS server could monitor and interfere with DNS traffic, without this being detected by the client.
 
 Attackers on a local network can abuse this to conduct trivial attacks. More recently, malicious DNS servers have been massively used by malware.
 
-The DNS security system (DNSSEC) was designed to partially mitigate this design flaw, by adding digital signatures to DNS responses.
+The DNS security extensions (DNSSEC) were designed to partially mitigate this design flaw, by adding digital signatures to DNS responses.
 
 <v-container text-xs-center>
   <img class=fill-width alt="DNS" src="../assets/DNS.png"/>
