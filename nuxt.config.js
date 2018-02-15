@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "universal",
-  plugins: ["~plugins/vuetify.js"],
+  plugins: ["~/plugins/vuetify.js"],
   modules: ["@nuxtjs/markdownit"],
 
   css: [
