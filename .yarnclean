@@ -40,3 +40,5 @@ Gruntfile.js
 # misc
 *.gz
 *.md
+
+!svgo/.svgo.yml
