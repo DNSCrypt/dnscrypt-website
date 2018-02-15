@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "DNSCrypt website",
   "author": "Frank Denis <github@pureftpd.org>",
-  "private": true,
+  "private": false,
+  "license": "ISC",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
