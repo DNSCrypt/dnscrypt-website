@@ -31,7 +31,7 @@ Be a hero and develop free, open-source clients for your favourite platform!
 
 * [dnsdist](https://dnsdist.org) by PowerDNS, supports both DNS-over-TLS and DNSCrypt.
 
-* [DoH-proxy](https://facebookexperimental.github.io/DoH-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
+* [DoH-proxy](https://facebookexperimental.github.io/doh-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
 
 * [rust-DoH](https://github.com/jedisct1/rust-DoH) supports DNS-over-HTTP/2 (DoH)
 
