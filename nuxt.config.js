@@ -20,7 +20,7 @@ module.exports = {
     breaks: true,
     html: true,
     typographer: true,
-    use: ["markdown-it-container", "markdown-it-attrs"]
+    use: ["markdown-it-container", "markdown-it-attrs" ,"markdown-it-anchor"]
   },
 
   /*
