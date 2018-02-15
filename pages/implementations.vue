@@ -33,7 +33,7 @@ Be a hero and develop free, open-source clients for your favourite platform!
 
 * [DoH-proxy](https://facebookexperimental.github.io/doh-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
 
-* [rust-DoH](https://github.com/jedisct1/rust-DoH) supports DNS-over-HTTP/2 (DoH)
+* [rust-DoH](https://github.com/jedisct1/rust-doh) supports DNS-over-HTTP/2 (DoH)
 
 ## Server Setup Guides
 

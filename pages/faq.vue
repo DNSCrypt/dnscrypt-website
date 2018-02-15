@@ -55,7 +55,7 @@ Unfortunately, DNSSEC has received little adoption yet, remains incompatible wit
 * <v-icon color=green>thumb_up</v-icon> Cannot be MITM'd by standard tools
 * <v-icon color=green>thumb_up</v-icon> Enforces certificate signatures
 * <v-icon color=green>thumb_up</v-icon> Has a complete specification since 2013
-* <v-icon color=green>thumb_up</v-icon> Post-quantum version in developement
+* <v-icon color=green>thumb_up</v-icon> Post-quantum version in developement, intent to ship in the forthcoming weeks
 * <v-icon color=red>thumb_down</v-icon> Does not have an RFC
 
 <v-container text-xs-center>
@@ -72,6 +72,21 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 
 ## Other protocols
 
+### [DNS over SSH]
+
+* <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
+* <v-icon color=green>thumb_up</v-icon> Can be deployed on any system already running an SSH server
+* <v-icon color=green>thumb_up</v-icon> Battle-tested, widely implemented transport protocol
+* <v-icon color=green>thumb_up</v-icon> Doesn't depend on root CAs
+* <v-icon color=green>thumb_up</v-icon> Can use DNSSEC or private CAs for public key verification
+* <v-icon color=green>thumb_up</v-icon> Supports multiple authentication mechanisms
+* <v-icon color=green>thumb_up</v-icon> Doesn't require a TLS stack; modern implementations do not even require OpenSSL any more
+* <v-icon color=red>thumb_down</v-icon> Very tricky to configure securely
+* <v-icon color=red>thumb_down</v-icon> Requires TCP
+* <v-icon color=red>thumb_down</v-icon> Current implementations don't scale well server-side
+* <v-icon color=red>thumb_down</v-icon> UDP queries [require TCP encapsulation](http://zarb.org/~gc/html/udp-in-ssh-tunneling.html)
+* <v-icon color=red>thumb_down</v-icon> The SFTP protocol supports reordering and parallelism, but common DNS-over-SSH tunelling cannot use this
+
 ### DNS over TLS ([RFC7858](https://tools.ietf.org/html/rfc7858))
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
@@ -80,15 +95,15 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> [Many implementations completed at various stages](https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Implementation+Status)
 * <v-icon color=red>thumb_down</v-icon> Uses a dedicated port (853) likely to be blocked or monitored in situations where DNS encryption is useful
 * <v-icon color=red>thumb_down</v-icon> Initial connection is slow due to the long handshake (until TLS 1.3 is deployed)
-* <v-icon color=red>thumb_down</v-icon> Not well understood even by its proponents
-* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified
+* <v-icon color=red>thumb_down</v-icon> Not well understood even by its proponents. It is a truck, as it is heavy and slow to load, but most if not all implementations perform a full round trip for every packet (even the excellent `miekg/dns` library as used by Tenta).
+* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified (besides an initial draft that just asks questions)
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack, introducing a large attack surface
 * <v-icon color=red>thumb_down</v-icon> Difficult to implement securely. Validating TLS certificates in non-browser software is [the most dangerous code in the world](https://crypto.stanford.edu/~dabo/pubs/abstracts/ssl-client-bugs.html)
-* <v-icon color=red>thumb_down</v-icon> Readily compatible with industry-standard TLS interception/monitoring devices
+* <v-icon color=red>thumb_down</v-icon> Readily compatible with industry-standard TLS interception/monitoring devices. Having people [install additional root certificates](https://sk.tl/3n7mJ9K4) is easier than custom software.
 * <v-icon color=red>thumb_down</v-icon> Requires TCP
 * <v-icon color=red>thumb_down</v-icon> Requires sessions tracking on the server
-* <v-icon color=red>thumb_down</v-icon> TLS is a generic transport mechanism. It doesn't support reordering and parallelism and doesn't include any ways to manage priorities.
-* <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard
+* <v-icon color=red>thumb_down</v-icon> TLS is a generic transport mechanism. It doesn't support reordering and parallelism and doesn't include any ways to manage priorities. New mechanisms need to be invented and implemented to do so.
+* <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
 
 ### [DNS over HTTPS (DoH)](https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-03)
@@ -104,6 +119,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Immediately compatible with caching proxies and CDNs
 * <v-icon color=green>thumb_up</v-icon> Allows web browsers to perform DNS queries using Javascript
 * <v-icon color=green>thumb_up</v-icon> Supports reordering, parallelism and priorities, thanks to HTTP/2
+* <v-icon color=green>thumb_up</v-icon> Can leverage existing padding mechanisms (HTTP/2 frames padding)
 * <v-icon color=green>thumb_up</v-icon> Already implemented by Google DNS (albeit not the latest draft)
 * <v-icon color=green>thumb_up</v-icon> Supported by CuRL
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack and a web server
