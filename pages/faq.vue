@@ -1,6 +1,6 @@
 <template lang=md>
 
-# FAQ
+# Frequently Asked Questions
 
 ## What is DNSCrypt?
 
@@ -64,11 +64,11 @@ Unfortunately, DNSSEC has received little adoption yet, remains incompatible wit
 
 ## How do I get started with using DNSCrypt?
 
-See [Client Implementations](/implementations#client-implementations)
+See <router-link to="/implementations">Client Implementations</router-link>
 
 ## How do I get started with running my own DNSCrypt server?
 
-See [Server Implementations](/implementations#server-implementations")
+See <router-link to="/implementations#server-implementations">Server Implementations</router-link>
 
 ## Other protocols
 

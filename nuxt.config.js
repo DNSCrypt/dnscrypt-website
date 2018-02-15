@@ -20,7 +20,7 @@ module.exports = {
     breaks: true,
     html: true,
     typographer: true,
-    use: ["markdown-it-container", "markdown-it-attrs"]
+    use: ["markdown-it-container", "markdown-it-attrs" ,"markdown-it-anchor"]
   },
 
   /*
@@ -42,7 +42,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ["vuetify"],
+    vendor: ["~/plugins/vuetify.js"],
     /*
     ** Run ESLint on save
     */
