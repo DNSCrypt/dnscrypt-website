@@ -96,7 +96,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> Uses a dedicated port (853) likely to be blocked or monitored in situations where DNS encryption is useful
 * <v-icon color=red>thumb_down</v-icon> Initial connection is slow due to the long handshake (until TLS 1.3 is deployed)
 * <v-icon color=red>thumb_down</v-icon> Not well understood even by its proponents. It is a truck, as it is heavy and slow to load, but most if not all implementations perform a full round trip for every packet (even the excellent `miekg/dns` library as used by Tenta).
-* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified (besides an initial draft that just asks questions)
+* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified besides a draft that doesn't have any implementations
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack, introducing a large attack surface
 * <v-icon color=red>thumb_down</v-icon> Difficult to implement securely. Validating TLS certificates in non-browser software is [the most dangerous code in the world](https://crypto.stanford.edu/~dabo/pubs/abstracts/ssl-client-bugs.html)
 * <v-icon color=red>thumb_down</v-icon> Readily compatible with industry-standard TLS interception/monitoring devices. Having people [install additional root certificates](https://sk.tl/3n7mJ9K4) is easier than custom software.
@@ -105,14 +105,15 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> TLS is a generic transport mechanism. It doesn't support reordering and parallelism and doesn't include any ways to manage priorities. New mechanisms need to be invented and implemented to do so.
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
+* <v-icon color=red>thumb_down</v-icon> Questionable practical benefits over DoH
 
 ### [DNS over HTTPS (DoH)](https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-03)
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=green>thumb_up</v-icon> New implementations are being developed
 * <v-icon color=green>thumb_up</v-icon> The minimum version of HTTP used by DoH should be HTTP/2
-* <v-icon color=green>thumb_up</v-icon> Uses standard HTTP/2, on the standard port (443).
-* <v-icon color=green>thumb_up</v-icon> Less likely to be blocked than other options.
+* <v-icon color=green>thumb_up</v-icon> Uses standard HTTP/2, on the standard port (443)
+* <v-icon color=green>thumb_up</v-icon> Less likely to be blocked than other options
 * <v-icon color=green>thumb_up</v-icon> Can be trivially deployed on any web server, and run along existing websites; DNS response are served like simple web pages
 * <v-icon color=green>thumb_up</v-icon> Can share the same infrastructure as existing websites, and share the same certificates
 * <v-icon color=green>thumb_up</v-icon> Simple to implement over any existing web stack
