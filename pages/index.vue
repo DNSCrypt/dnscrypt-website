@@ -8,7 +8,6 @@ DNSCrypt is a protocol that authenticates communications between a DNS client an
 It is an open specification, with free and open source reference implementations, and it is not affiliated with any company nor organization.
 
 Free, DNSCrypt-enabled resolvers are available all over the world.
-A couple companies, organizations and individuals are operating public recursive DNS servers supporting the DNSCrypt protocol, so that all you need to run is a client.
 
 <v-container text-xs-center>
 <v-btn class=primary large nuxt router to="/implementations">Let's secure your DNS!</v-btn>

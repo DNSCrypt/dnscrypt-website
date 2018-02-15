@@ -10,6 +10,8 @@ In order to use DNS over secure channels, client software has to be installed on
 
 * [DoH-proxy](https://facebookexperimental.github.io/doh-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
 
+* [Pcap_DNSProxy](https://github.com/chengr28/Pcap_DNSProxy) is a local DNS proxy based on WinPcap and LibPcap
+
 ### Windows
 
 * [Simple DNSCrypt](https://simplednscrypt.org/) is a simple management tool to configure dnscrypt-proxy on windows based systems.
