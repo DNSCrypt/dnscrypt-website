@@ -1,6 +1,6 @@
 <template lang=md>
 
-# FAQ
+# Frequently Asked Questions
 
 ## What is DNSCrypt?
 

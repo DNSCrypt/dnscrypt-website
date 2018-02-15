@@ -1,6 +1,6 @@
 <template>
-    <v-toolbar fixed dark class="primary">
-        <v-toolbar-title><v-btn flat class="primary" router nuxt to="/"><img src="~/assets/dnscrypt-small.png" height="42px" align="middle"/></v-btn></v-toolbar-title>
+    <v-toolbar fixed dark class="blue darken-2">
+        <v-toolbar-title><v-btn flat class="primary nav-img-btn" router nuxt to="/"><img src="~/assets/dnscrypt-small.png" height="42px" align="middle"/></v-btn></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-menu offset-y open-on-hover>
             <v-list>
@@ -32,6 +32,6 @@
             <v-btn flat router nuxt to="/protocol">Protocol</v-btn>
             <v-btn flat router nuxt to="/stamps">Stamps</v-btn>
         </v-toolbar-items>
-        <v-btn flat class="primary" href="https://github.com/dnscrypt"><img src="~/assets/github-light.svg" align="middle" height="42px" /></v-btn>
+        <v-btn flat class="primary nav-img-btn" href="https://github.com/dnscrypt"><img src="~/assets/github-light.svg" align="middle" height="42px" /></v-btn>
     </v-toolbar>
 </template>
