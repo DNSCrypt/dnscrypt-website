@@ -8,7 +8,7 @@ In order to use DNS over secure channels, client software has to be installed on
 
 * [DNSCrypt-Proxy](https://github.com/jedisct1/dnscrypt-proxy) is a command-line proxy for Linux, BSD, Windows, MacOS, Android and more. It bridges applications expecting regular DNS with servers supporting encrypted DNS (DNSCrypt and DoH). DNSCrypt-Proxy can also display the DNS activity, cache results to improve speed, and locally block unwanted content. [Installation instructions](https://github.com/jedisct1/dnscrypt-proxy/wiki/installation) - [Download](https://github.com/jedisct1/dnscrypt-proxy/releases)
 
-* [DoH-proxy](https://facebookexperimental.github.io/DoH-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
+* [DoH-proxy](https://facebookexperimental.github.io/doh-proxy/) by Facebook, supports DNS-over-HTTP/2 (DoH)
 
 ### Windows
 
