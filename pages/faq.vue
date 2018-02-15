@@ -55,6 +55,7 @@ Unfortunately, DNSSEC has received little adoption yet, remains incompatible wit
 * <v-icon color=green>thumb_up</v-icon> Cannot be MITM'd by standard tools
 * <v-icon color=green>thumb_up</v-icon> Enforces certificate signatures
 * <v-icon color=green>thumb_up</v-icon> Has a complete specification since 2013
+* <v-icon color=green>thumb_up</v-icon> Regular DNS and DNSCrypt can share the same port (although port 443 is recommended due to routers frequently hijacking port 53)
 * <v-icon color=green>thumb_up</v-icon> Post-quantum version in developement, intent to ship in the forthcoming weeks
 * <v-icon color=red>thumb_down</v-icon> Does not have an RFC
 
@@ -122,13 +123,13 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Supports reordering, parallelism and priorities, thanks to HTTP/2
 * <v-icon color=green>thumb_up</v-icon> Can leverage existing padding mechanisms (HTTP/2 frames padding)
 * <v-icon color=green>thumb_up</v-icon> Already implemented by Google DNS (albeit not the latest draft)
-* <v-icon color=green>thumb_up</v-icon> Supported by CuRL
+* <v-icon color=green>thumb_up</v-icon> Supported by CuRL: will soon be available in all programming languages with bindings for libcurl
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack and a web server
 * <v-icon color=red>thumb_down</v-icon> Interception/monitoring tools are readily available
-* <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard
+* <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
 * <v-icon color=red>thumb_down</v-icon> Requires TCP
-* <v-icon color=red>thumb_down</v-icon> RFC is in Draft stage
+* <v-icon color=red>thumb_down</v-icon> RFC is in draft stage
 
 ### DNS-over-DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
 
@@ -140,5 +141,9 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=red>thumb_down</v-icon> Uses a dedicated port: 784
 * <v-icon color=red>thumb_down</v-icon> RFC is in Draft stage
+
+## Practical considerations
+
+All the solutions above offer the same practical security level. Compatibility with existing tools and infrastructure is what makes an actual difference.
 
 </template>
