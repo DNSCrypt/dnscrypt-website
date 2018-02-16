@@ -1,6 +1,6 @@
 <template lang=md>
 <v-container text-xs-center>
-  <img class=fill-width src="../assets/dnscrypt.png"/>
+  <img class=fill-width src="../assets/dnscrypt.png" alt=DNSCrypt />
 </v-container>
 
 DNSCrypt is a protocol that authenticates communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.
@@ -10,7 +10,7 @@ It is an open specification, with free and open source reference implementations
 Free, DNSCrypt-enabled resolvers are available all over the world.
 
 <v-container text-xs-center>
-<v-btn class=primary large nuxt router to="/implementations">Let's secure your DNS!</v-btn>
+<v-btn class=primary large nuxt to="/implementations">Let's secure your DNS!</v-btn>
 </v-container>
 
 ## Why was DNSCrypt developed?
