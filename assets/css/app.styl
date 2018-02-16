@@ -1,19 +1,22 @@
 
 @require './fonts.css'
 
-li {
+li
   list-style: none
-}
-h2, h3, h4 {
-  margin-top: 2em;
-}
-.fill-width {
-  max-width: 100%;
-}
 
-.btn.nav-img-btn {
-  height: 4.6em;
-}
+h2, h3, h4
+  margin-top: 2em
+
+.fill-width
+  max-width: 100%
+
+.btn.nav-img-btn
+  height: 48px
+  transition: height 80ms 270ms
+
+@media (min-width: 960px)
+  .btn.nav-img-btn
+    height: 64px
 
 $font-size-root := 16px
 @require '~vuetify/src/stylus/main.styl'
