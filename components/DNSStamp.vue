@@ -25,10 +25,10 @@
       </v-flex>
       </v-layout>
       <p>
-      DNS Stamps encode all the parameters required to connect to a secure DNS server as a single string.
+        <a href="https://github.com/jedisct1/dnscrypt-proxy/wiki/stamps">DNS Stamps</a> encode all the parameters required to connect to a secure DNS server as a single string.
       </p>
       <p>
-      Think about stamps as QR code, but for DNS.
+        Think about stamps as QR code, but for DNS.
       </p>
     </v-container>
 </template>
