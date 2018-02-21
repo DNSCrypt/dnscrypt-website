@@ -24,12 +24,6 @@
         <v-text-field label="Stamp" type="text" :value="stamp" @input="stampUpdated"/>
       </v-flex>
       </v-layout>
-      <p>
-        <a href="https://github.com/jedisct1/dnscrypt-proxy/wiki/stamps">DNS Stamps</a> encode all the parameters required to connect to a secure DNS server as a single string.
-      </p>
-      <p>
-        Think about stamps as QR code, but for DNS.
-      </p>
     </v-container>
 </template>
 
