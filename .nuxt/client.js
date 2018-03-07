@@ -23,7 +23,7 @@ const noopFetch = () => {}
 let _lastPaths = []
 let app
 let router
-let store
+
 
 // Try to rehydrate SSR data from window
 const NUXT = window.__NUXT__ || {}
@@ -247,7 +247,7 @@ async function render (to, from, next) {
       isValid = Component.options.validate({
         params: to.params || {},
         query : to.query  || {},
-        store
+        
       })
     })
     // ...If .validate() returned false
@@ -371,7 +371,7 @@ function fixPrepatch(to, ___) {
 
     instances.forEach((instance, i) => {
       if (!instance) return
-      if (to.matched[matches[i]].path.indexOf(':') === -1) return // If not a dyanmic route, skip
+      // if (!this._queryChanged && to.matched[matches[i]].path.indexOf(':') === -1 && to.matched[matches[i]].path.indexOf('*') === -1) return // If not a dynamic route, skip
       if (instance.constructor._dataRefresh && _lastPaths[i] === instance.constructor._path && typeof instance.constructor.options.data === 'function') {
         const newData = instance.constructor.options.data.call(instance)
         for (let key in newData) {
@@ -407,7 +407,7 @@ async function mountApp(__app) {
   // Set global variables
   app = __app.app
   router = __app.router
-  store = __app.store 
+  
 
   // Resolve route components
   const Components = await Promise.all(resolveComponents(router))

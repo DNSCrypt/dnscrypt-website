@@ -1,5 +1,5 @@
 
-let files = require.context('@/middleware', false, /^\.\/(?!-).*\.(js)$/)
+let files = require.context('@/middleware', false, /^\.\/(?!-)[^.]+\.(js)$/)
 let filenames = files.keys()
 
 function getModule (filename) {
