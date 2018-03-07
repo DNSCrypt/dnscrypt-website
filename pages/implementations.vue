@@ -18,7 +18,11 @@ In order to use DNS over secure channels, client software has to be installed on
 
 ### iOS
 
-* [DNSCloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1330471557?mt=8) takes advantage of the DNS proxy provider system introduced in iOS 11 to bring the DNSCrypt protocol to Apple devices. Devices don’t have to be jailbroken to install this software.
+* [DNSCloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1330471557?mt=8): full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required.
+
+### Android
+
+Official pre-compiled binaries are available for Android. A Magisk module is also available. See this thread on running [DNSCrypt proxy on Android](https://github.com/jedisct1/dnscrypt-proxy/issues/41) for more information.
 
 ### Other platforms
 
