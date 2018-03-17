@@ -16,6 +16,10 @@ In order to use DNS over secure channels, client software has to be installed on
 
 * [Simple DNSCrypt](https://simplednscrypt.org/) is a simple management tool to configure dnscrypt-proxy on windows based systems.
 
+### macOS
+
+* [dnscrypt-proxy switcher](https://github.com/jedisct1/bitbar-dnscrypt-proxy-switcher/) plugin for [BitBar](https://getbitbar.com).
+
 ### iOS
 
 * [DNSCloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1330471557?mt=8): full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required.
