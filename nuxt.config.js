@@ -27,7 +27,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "Official DNSCrypt website",
+    title: "Home page of the DNSCrypt project [DNS security]",
     htmlAttrs: { lang: 'en'},
     meta: [
       { charset: "utf-8" },
