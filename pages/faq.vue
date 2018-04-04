@@ -32,7 +32,7 @@ DNSSEC is a DNS Extension that allows a client to validate the DNS response on s
 
 Resolvers check the digital signature of DNS responses to verify that the data match what the zone owner initially configured.
 
-Unfortunately, DNSSEC has received little adoption yet, remains incompatible with some devices and software pieces, and doesn't prevent the traffic from being monitored.
+Unfortunately, [DNSSEC has received limited adoption](https://labs.ripe.net/Members/rene_bakker/bang-for-the-buck-the-adoption-of-dnssec-and-return-on-investment), remains incompatible with some devices and software pieces, and doesn't prevent the traffic from being monitored.
 
 <v-container text-xs-center>
   <img class=fill-width alt="DNSSEC" src="../assets/DNS-DNSSEC.png"/>
