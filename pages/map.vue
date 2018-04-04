@@ -10,7 +10,7 @@
         <ymap-marker v-for="marker in markers" v-bind:key="marker.id"
                 marker-id="marker.id"
                 marker-type="circle"
-                circle-radius="250000"
+                circle-radius="180000"
                 :marker-fill="{color: '#ccccff', opacity: 0.5}"
                 :marker-stroke="{color: '#224488', width: 2}"
                 v-bind:coords="marker.location"
