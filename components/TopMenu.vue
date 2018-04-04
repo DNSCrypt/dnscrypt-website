@@ -13,6 +13,9 @@
                 <v-list-tile nuxt to="/public-servers">
                     <v-list-tile-title>Public DNS servers</v-list-tile-title>
                 </v-list-tile>
+                <v-list-tile nuxt to="/map">
+                    <v-list-tile-title>Map</v-list-tile-title>
+                </v-list-tile>
                 <v-list-tile nuxt to="/faq">
                     <v-list-tile-title>FAQ</v-list-tile-title>
                 </v-list-tile>
@@ -28,6 +31,7 @@
         <v-toolbar-items class="hidden-sm-and-down">
             <v-btn flat nuxt to="/implementations">Implementations</v-btn>
             <v-btn flat nuxt to="/public-servers">Public DNS servers</v-btn>
+            <v-btn flat nuxt to="/map">Map</v-btn>
             <v-btn flat nuxt to="/faq">FAQ</v-btn>
             <v-btn flat nuxt to="/protocol">Protocol</v-btn>
             <v-btn flat nuxt to="/stamps">Stamps</v-btn>
