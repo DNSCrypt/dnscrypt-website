@@ -19,7 +19,7 @@
                 :icon="{color: 'blue', glyph: 'cinema'}">
         </ymap-marker>
     </yandex-map>
-    <v-container text-xs-center>Public DNSCrypt servers. Anycast resolvers are not displayed on this map</v-container>
+    <v-container text-xs-center>Public DNSCrypt servers. Anycast resolvers have a single marker.</v-container>
   </v-container>
 </template>
 
