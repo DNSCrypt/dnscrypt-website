@@ -16,7 +16,7 @@
         </span>
         <span v-if="proto==='DoH'">
           <v-text-field label="Host name (vhost+SNI) and optional port number" type="text" v-model="hostName"/>
-          <v-text-field label="Hash" type="text" v-model="hash"/>
+          <v-text-field label="Hashes" type="text" v-model="hashes"/>
           <v-text-field label="Path" type="text" v-model="path"/>
         </span>
       </v-flex>
@@ -42,7 +42,7 @@ export default {
       pk: "",
       providerName: "2.dnscrypt-cert.",
       hostName: "",
-      hash: "",
+      hashes: "",
       path: "/dns-query"
     };
   },
@@ -78,9 +78,17 @@ export default {
       };
 
       const dohStamp = () => {
-        let hashLen = bin[i++];
-        this.hash = bin.slice(i, i + hashLen).toString("hex");
-        i += hashLen;
+        this.hashes = "";
+        for (;;) {
+          let hashLen = bin[i++];
+          this.hashes += bin.slice(i, i + (hashLen & 0x7f)).toString("hex");
+          i += hashLen & 0x7f;
+          if ((hashLen & 0x80) == 0x80) {
+            this.hashes += ",";
+          } else {
+            break;
+          }
+        }
         let hostNameLen = bin[i++];
         this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
         i += hostNameLen;
@@ -113,8 +121,19 @@ export default {
       const dohStamp = () => {
         let v = [0x02, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
         v.push(addr.length, ...addr);
-        let hash = Buffer.from(this.hash.replace(/[: \t]/g, ""), "hex");
-        v.push(hash.length, ...hash);
+        let hashes = [];
+        try {
+          hashes = this.hashes
+            .split(/ *, */)
+            .map(h => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+        } catch (e) {}
+        for (let i = 0, j = hashes.length; i < j; i++) {
+          let length = hashes[i].length;
+          if (i < j - 1) {
+            length |= 0x80;
+          }
+          v.push(length, ...hashes[i]);
+        }
         let hostName = this.hostName.split("").map(c => c.charCodeAt());
         v.push(hostName.length, ...hostName);
         let path = this.path.split("").map(c => c.charCodeAt());

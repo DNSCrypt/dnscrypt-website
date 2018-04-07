@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <yandex-map v-if="showMap"
+  <v-container v-if="showMap">
+    <yandex-map
             mapLink="https://api-maps.yandex.ru/2.1/?lang=en_US"
             :coords="[35,10]"
             :controls="['zoomControl']"
