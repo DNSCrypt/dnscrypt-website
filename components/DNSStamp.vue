@@ -16,7 +16,7 @@
         </span>
         <span v-if="proto==='DoH'">
           <v-text-field label="Host name (vhost+SNI) and optional port number" type="text" v-model="hostName"/>
-          <v-text-field label="Hashes" type="text" v-model="hashes"/>
+          <v-text-field label="Hashes (comma-separated)" type="text" v-model="hashes"/>
           <v-text-field label="Path" type="text" v-model="path"/>
         </span>
       </v-flex>
