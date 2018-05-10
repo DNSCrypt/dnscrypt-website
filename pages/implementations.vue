@@ -12,6 +12,8 @@ In order to use DNS over secure channels, client software has to be installed on
 
 * [Pcap_DNSProxy](https://github.com/chengr28/Pcap_DNSProxy) is a local DNS proxy based on WinPcap and LibPcap
 
+* [YourFriendlyDNS](https://github.com/softwareengineer1/YourFriendlyDNS) is a local, multi-platform (Linux, Windows, macOS, Android) caching DNS proxy written in C++
+
 ### Windows
 
 * [Simple DNSCrypt](https://simplednscrypt.org/) is a simple management tool to configure dnscrypt-proxy on windows based systems.
