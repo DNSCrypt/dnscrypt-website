@@ -108,7 +108,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
 * <v-icon color=red>thumb_down</v-icon> Questionable practical benefits over DoH
 
-### [DNS over HTTPS (DoH)](https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-03)
+### [DNS over HTTPS (DoH)](https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-08)
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=green>thumb_up</v-icon> New implementations are being developed
