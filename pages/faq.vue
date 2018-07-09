@@ -91,29 +91,32 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 ### DNS over TLS ([RFC7858](https://tools.ietf.org/html/rfc7858))
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
-* <v-icon color=green>thumb_up</v-icon> Has an increasing number of servers in deployment
+* <v-icon color=green>thumb_up</v-icon> Has a low, but increasing number of servers in deployment
 * <v-icon color=green>thumb_up</v-icon> Partially specified as a RFC
 * <v-icon color=green>thumb_up</v-icon> [Many implementations completed at various stages](https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Implementation+Status)
+* <v-icon color=red>thumb_down</v-icon> Provides more information than regular DNS to resolver operators in order to fingerprint clients, and this has (intentionally?) never been addressed in the specification
 * <v-icon color=red>thumb_down</v-icon> Uses a dedicated port (853) likely to be blocked or monitored in situations where DNS encryption is useful
-* <v-icon color=red>thumb_down</v-icon> Initial connection is slow due to the long handshake (until TLS 1.3 is deployed)
+* <v-icon color=red>thumb_down</v-icon> Initial connection is slow due to the long handshake (until TLS 1.3 is deployed, which can take time due to [middleboxes](https://chefkochblog.wordpress.com/2017/12/20/tls-1-3-gets-blocked-by-cisco-avast-nsa/))
 * <v-icon color=red>thumb_down</v-icon> Not well understood even by its proponents. It is a truck, as it is heavy and slow to load, but most if not all implementations perform a full round trip for every packet (even the excellent `miekg/dns` library as used by Tenta).
-* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified besides a draft that doesn't have any implementations
+* <v-icon color=red>thumb_down</v-icon> Padding rules haven't been specified besides a draft that doesn't have any implementations, and a last-minute hack that requires altering DNS record sets before wrapping them
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack, introducing a large attack surface
 * <v-icon color=red>thumb_down</v-icon> Difficult to implement securely. Validating TLS certificates in non-browser software is [the most dangerous code in the world](https://crypto.stanford.edu/~dabo/pubs/abstracts/ssl-client-bugs.html)
-* <v-icon color=red>thumb_down</v-icon> Readily compatible with industry-standard TLS interception/monitoring devices. Having people [install additional root certificates](https://sk.tl/3n7mJ9K4) is easier than custom software.
+* <v-icon color=red>thumb_down</v-icon> Readily compatible with industry-standard TLS interception/monitoring devices. Having people [install additional root certificates](https://sk.tl/3n7mJ9K4) is easier than custom software. Vendors are always ready to [passively extract information from TLS 1.3 sessions](https://sk.tl/7xmjiWwx).
 * <v-icon color=red>thumb_down</v-icon> Requires TCP
 * <v-icon color=red>thumb_down</v-icon> Requires sessions tracking on the server
 * <v-icon color=red>thumb_down</v-icon> TLS is a generic transport mechanism. It doesn't support reordering and parallelism and doesn't include any ways to manage priorities. New mechanisms need to be invented and implemented to do so.
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
+* <v-icon color=red>thumb_down</v-icon> Will be bifficult to improve without introducing more hacks. Unlikely to benefit from any improvements besides new TLS versions or homegrown reinventions.
 * <v-icon color=red>thumb_down</v-icon> Questionable practical benefits over DoH
 
-### [DNS over HTTPS (DoH)](https://tools.ietf.org/html/draft-ietf-doh-dns-over-https-10)
+### [DNS over HTTPS (DoH)](https://datatracker.ietf.org/doc/draft-ietf-doh-dns-over-https/?include_text=1)
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=green>thumb_up</v-icon> New implementations are being developed
 * <v-icon color=green>thumb_up</v-icon> The minimum version of HTTP used by DoH should be HTTP/2
 * <v-icon color=green>thumb_up</v-icon> Uses standard HTTP/2, on the standard port (443)
+* <v-icon color=green>thumb_up</v-icon> Will automatically benefit from improvements made to HTTP/2 and, eventually, QUIC
 * <v-icon color=green>thumb_up</v-icon> Less likely to be blocked than other options
 * <v-icon color=green>thumb_up</v-icon> Can be trivially deployed on any web server, and run along existing websites; DNS response are served like simple web pages
 * <v-icon color=green>thumb_up</v-icon> Can share the same infrastructure as existing websites, and share the same certificates
@@ -124,7 +127,9 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Can leverage existing padding mechanisms (HTTP/2 frames padding)
 * <v-icon color=green>thumb_up</v-icon> Already implemented by Google DNS (albeit not the latest draft)
 * <v-icon color=green>thumb_up</v-icon> Supported by CuRL: will soon be available in all programming languages with bindings for libcurl
-* <v-icon color=green>thumb_up</v-icon> Maybe soon be available in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1434852) (update: already available in Firefox nightlies)
+* <v-icon color=green>thumb_up</v-icon> Available in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1434852)
+* <v-icon color=green>thumb_up</v-icon> Work is being made to leverage DoH and CDNs to improve performance of web applications (DoH digests)[https://tools.ietf.org/html/draft-nottingham-doh-digests-00]
+* <v-icon color=red>thumb_down</v-icon> Provides more information than regular DNS to resolver operators in order to fingerprint clients, but this is being addressed in the specification
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack and a web server
 * <v-icon color=red>thumb_down</v-icon> Interception/monitoring tools are readily available
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
