@@ -107,7 +107,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> TLS is a generic transport mechanism. It doesn't support reordering and parallelism and doesn't include any ways to manage priorities. New mechanisms need to be invented and implemented to do so.
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
-* <v-icon color=red>thumb_down</v-icon> Will be bifficult to improve without introducing more hacks. Unlikely to benefit from any improvements besides new TLS versions or homegrown reinventions.
+* <v-icon color=red>thumb_down</v-icon> Will be difficult to improve without introducing more hacks. Unlikely to benefit from any improvements besides new TLS versions or homegrown reinventions.
 * <v-icon color=red>thumb_down</v-icon> Questionable practical benefits over DoH
 
 ### [DNS over HTTPS (DoH)](https://datatracker.ietf.org/doc/draft-ietf-doh-dns-over-https/?include_text=1)
