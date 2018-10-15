@@ -1,6 +1,6 @@
 <template>
   <v-data-table :headers="headers" :items="items" :loading="loading" class="elevation-1"
-    :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'>
+    :rows-per-page-items='[50,25,10,{"text":"All","value":-1}]'>
     <template slot="items" slot-scope="props">
       <td>
         <v-badge>
