@@ -110,7 +110,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> Will be difficult to improve without introducing more hacks. Unlikely to benefit from any improvements besides new TLS versions or homegrown reinventions.
 * <v-icon color=red>thumb_down</v-icon> Questionable practical benefits over DoH
 
-### [DNS over HTTPS (DoH)](https://datatracker.ietf.org/doc/draft-ietf-doh-dns-over-https/?include_text=1)
+### [DNS over HTTPS (DoH)](https://www.rfc-editor.org/rfc/rfc8484.txt)
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=green>thumb_up</v-icon> New implementations are being developed

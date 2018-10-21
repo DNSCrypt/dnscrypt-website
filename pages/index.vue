@@ -23,6 +23,4 @@ Pioneered by the [OpenBSD](https://openbsd.org/) operating system [circa 2008](h
 
 The [DNSCrypt protocol](protocol) was then specifically designed for that purpose. DNSCrypt version 2 was specified and implemented in 2013, and is probably the most deployed encrypted DNS protocol to date.
 
-Specifications to leverage generic secure transport protocols such as [DNS-over-HTTP/2](https://datatracker.ietf.org/doc/draft-ietf-doh-dns-over-https/?include_text=1) are also being finalized.
-
 </template>
