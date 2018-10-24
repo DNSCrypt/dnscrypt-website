@@ -16,12 +16,12 @@ An example list of [public secure DNS resolvers](https://github.com/DNSCrypt/dns
 
 - `a || b` is the concatenation of `a` and `b`
 - `a | b` is the result of the logical `OR` operation between `a` and `b`.
-- `len(x)` is a single byte representation of the length of `x`, in bytes. Strings do not have to be zero-terminated.
+- `len(x)` is a single byte representation of the length of `x`, in bytes. Strings don't have to be zero-terminated and do not require invidual encoding.
 - `vlen(x)` is equal to `len(x)` if `x` is the last element of a set, and `0x80 | len(x)` if there are more elements in the set.
 - `LP(x)` is `len(x) || x`, i.e `x` prefixed by its length.
 - `VLP(x1, x2, ...xn)` encodes a set, as `vlen(x1) || x1 || vlen(x2) || x2 ... || vlen(xn) || xn`. Since `vlen(xn) == len(xn)` (length of the last element doesn't have the high bit set), for a set with a single element, we have `VLP(x) == LP(x)`.
 - `[ Q ]` means that `Q` is optional.
-- `base64url(s)` is the URL-safe base64 encoding of `s`.
+- `base64url(s)` is the URL-safe base64 encoding of `s`. None of the parameters are individually base64-encoded. Base64-encoding is only applied once, on the entire concatenation of all length-prefixed parameters.
 
 ## Encoding examples:
 
@@ -47,7 +47,8 @@ Format:
 
 For example, a server that supports DNSSEC, stores logs, but doesn't block anything on its own should set `props` as the following 8 bytes sequence: `[ 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 ]`.
 
-`addr` is the IP address, as a string, with a port number if the server is not accessible over the standard port for the protocol (443). IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`.
+`addr` is the IP address, as a string, with a port number if the server is not accessible over the standard port for the protocol (443).
+IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`. Scopes are permitted.
 
 `pk` is the DNSCrypt provider's Ed25519 public key, as 32 raw bytes.
 
@@ -63,14 +64,14 @@ Format:
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
-`addr` is the IP address of the server. It can be an empty string, or just a port number.
+`addr` is the IP address of the server. It can be an empty string, or just a port number, represented with a preceding colon (`:443`).
 In that case, the host name will be resolved to an IP address using another resolver.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
 typically the certificate used to sign the resolver's certificate. Multiple hashes can
 be provided for seamless rotations.
 
-`hostname` is the server host name which will also be used as a SNI name.
+`hostname` is the server host name which will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
 
 `path` is the absolute URI path, such as `/.well-known/dns-query`.
 
@@ -88,7 +89,8 @@ Format:
 ```
 
 `addr` is the IP address of the server. It can be an empty string, or just a port number.
-In that case, the host name will be resolved to an IP address using another resolver. IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`.
+In that case, the host name will be resolved to an IP address using another resolver.
+IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`. Scopes are permitted.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
 typically the certificate used to sign the resolver's certificate.  Multiple hashes can
@@ -108,6 +110,7 @@ Format:
 ```
 
 `addr` is the IP address of the server. IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`.
+Scopes are permitted.
 
 ## Implementations
 
