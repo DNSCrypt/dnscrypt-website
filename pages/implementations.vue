@@ -182,14 +182,14 @@
             name: "Unbound",
             author: "NLnet Labs",
             url: "https://nlnetlabs.nl/projects/unbound/about/",
-            protocols: [ "DNSCrypt" ],
+            protocols: [ "DNSCrypt", "DoT" ],
             language: "C",
             description: "Unbound by NLnetLabs, supports both DNS-over-TLS and DNSCrypt."
           }, {
             name: "dnsdist",
             author: "PowerDNS",
             url: "https://dnsdist.org/",
-            protocols: [ "DNSCrypt", "DoH" ],
+            protocols: [ "DNSCrypt", "DoH", "DoT" ],
             language: "C++",
             description: "dnsdist by PowerDNS, supports both DNS-over-TLS and DNSCrypt."
           }, {
