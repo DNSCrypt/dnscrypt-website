@@ -168,7 +168,7 @@
             name: "DNSCrypt-Wrapper",
             author: "Yecheng Fu (@cofyc)",
             url: "https://github.com/cofyc/dnscrypt-wrapper",
-            protocols: [ "DNSCrypt", "DoT" ],
+            protocols: [ "DNSCrypt" ],
             language: "C",
             description: "DNSCrypt-Wrapper is a DNSCrypt proxy."
           },{
@@ -189,7 +189,7 @@
             name: "dnsdist",
             author: "PowerDNS",
             url: "https://dnsdist.org/",
-            protocols: [ "DNSCrypt" ],
+            protocols: [ "DNSCrypt", "DoH" ],
             language: "C++",
             description: "dnsdist by PowerDNS, supports both DNS-over-TLS and DNSCrypt."
           }, {
