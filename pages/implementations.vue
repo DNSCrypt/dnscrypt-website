@@ -88,7 +88,7 @@
             name: "DNSCrypt-Proxy",
             Author: "Frank Denis (@jedisct1)",
             url: "https://github.com/jedisct1/dnscrypt-proxy",
-            protocols: ["DNSProxy", "DoH"],
+            protocols: ["DNSCrypt", "DoH"],
             platforms: ["Linux", "BSD", "Windows", "macOS", "Android", "more"],
             language: "Golang",
             description: "DNSCrypt-Proxy is a command-line proxy for Linux, BSD, Windows, MacOS, Android and more. It bridges applications expecting regular DNS with servers supporting encrypted DNS (DNSCrypt and DoH). DNSCrypt-Proxy can also display the DNS activity, cache results to improve speed, and locally block unwanted content."
@@ -101,18 +101,18 @@
             language: "Python",
             description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
           }, {
-            name: "Pcap_DNSProxy",
+            name: "Pcap_DNSCrypt",
             Author: "",
-            url: "https://github.com/chengr28/Pcap_DNSProxy",
-            protocols: ["DNSProxy"],
+            url: "https://github.com/chengr28/Pcap_DNSCrypt",
+            protocols: ["DNSCrypt"],
             platforms: ["Windows", "Linux", "macOS", "OpenWrt/LEDE"],
             language: "C++",
-            description: "Pcap_DNSProxy is a local DNS proxy based on WinPcap and LibPcap"
+            description: "Pcap_DNSCrypt is a local DNS proxy based on WinPcap and LibPcap"
           }, {
             name: "YourFriendlyDNS",
             Author: "",
             url: "https://github.com/softwareengineer1/YourFriendlyDNS",
-            protocols: ["DNSProxy"],
+            protocols: ["DNSCrypt"],
             platforms: ["Linux", "Windows", "macOS", "Android"],
             language: "C++",
             description: "YourFriendlyDNS is a local, multi-platform (Linux, Windows, macOS, Android) caching DNS proxy written in C++"
@@ -120,7 +120,7 @@
             name: "Simple DNSCrypt",
             Author: "",
             url: "https://simplednscrypt.org/",
-            protocols: ["DNSProxy"],
+            protocols: ["DNSCrypt"],
             platforms: ["Windows"],
             language: "C#",
             description: "Simple DNSCrypt is a simple management tool to configure dnscrypt-proxy on windows based systems."
@@ -128,7 +128,7 @@
             name: "dnscrypt-proxy switcher",
             Author: "",
             url: "https://github.com/jedisct1/bitbar-dnscrypt-proxy-switcher/",
-            protocols: ["DNSProxy"],
+            protocols: ["DNSCrypt"],
             platforms: ["macOS"],
             language: "Shell",
             description: "dnscrypt-proxy switcher is a plugin for BitBar."
@@ -136,7 +136,7 @@
             name: "DNSCloak",
             Author: "",
             url: "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1330471557?mt=8",
-            protocols: ["DNSProxy"],
+            protocols: ["DNSCrypt"],
             platforms: ["iOS"],
             language: "",
             description: "DNSCloak is a full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required."
@@ -144,7 +144,7 @@
             name: "DNSCrypt proxy on Android",
             Author: "",
             url: "https://github.com/jedisct1/dnscrypt-proxy/issues/41",
-            protocols: ["DNSProxy"],
+            protocols: ["DNSCrypt"],
             platforms: ["Android"],
             language: "",
             description: "Official pre-compiled binaries are available for Android. A Magisk module is also available. See thread on running DNSCrypt proxy on Android for more information."
