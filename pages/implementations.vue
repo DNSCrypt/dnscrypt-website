@@ -206,6 +206,13 @@
             protocols: [ "DoH" ],
             language: "Rust",
             description: "rust-DoH supports DNS-over-HTTP/2 (DoH)"
+          }, {
+            name: "dnss",
+            author: "Alberto Bertogli (@albertito)",
+            url: "https://github.com/albertito/dnss",
+            protocols: [ "DoH" ],
+            language: "Go",
+            description: "A daemon for using DNS over HTTPS"
           }
         ]
       }

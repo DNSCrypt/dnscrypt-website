@@ -132,6 +132,7 @@ DNS stamps are known to be used in the following applications:
 ### Servers lists as DNS stamps
 
 - [Quad9 resolvers list](https://www.quad9.net/quad9-resolvers.md)
+- [CleanBrowsing DNSCrypt](https://cleanbrowsing.org/dnscrypt) and [DoH](https://cleanbrowsing.org/dnsoverhttps) servers
 - [Public resolvers list](https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md)
 - [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v2/opennic.md)
 - [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v2/parental-control.md)
