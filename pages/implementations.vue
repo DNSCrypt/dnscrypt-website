@@ -47,8 +47,6 @@ Be a hero and develop free, open-source clients for your favourite platform!
 
 * [rust-DoH](https://github.com/jedisct1/rust-doh) supports DNS-over-HTTP/2 (DoH)
 
-* [dnss](https://github.com/albertito/dnss), supports DoH and can act as a server and proxy.
-
 ## Server Setup Guides
 
 * [How to setup your own DNSCrypt server in less than 10 minutes](https://github.com/jedisct1/dnscrypt-proxy/wiki/How-to-setup-your-own-DNSCrypt-server-in-less-than-10-minutes)
