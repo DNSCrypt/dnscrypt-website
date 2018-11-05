@@ -101,9 +101,9 @@
             language: "Python",
             description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
           }, {
-            name: "Pcap_DNSCrypt",
+            name: "Pcap_DNSProxy",
             Author: "",
-            url: "https://github.com/chengr28/Pcap_DNSCrypt",
+            url: "https://github.com/chengr28/Pcap_DNSProxy",
             protocols: ["DNSCrypt"],
             platforms: ["Windows", "Linux", "macOS", "OpenWrt/LEDE"],
             language: "C++",
