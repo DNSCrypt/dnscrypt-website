@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Client Implementations</h2>
+    <h2 id="client-implementations">Client Implementations</h2>
     <v-card>
       <v-card-title>
         Client Implementations
@@ -37,7 +37,7 @@
       </v-data-table>
     </v-card>
 
-    <h2>Server Implementations</h2>
+    <h2 id="server-implementations">Server Implementations</h2>
     <v-card>
       <v-card-title>
         Server Implementations
