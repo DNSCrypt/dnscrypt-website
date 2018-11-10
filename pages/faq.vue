@@ -129,13 +129,13 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Supported by CuRL: will soon be available in all programming languages with bindings for libcurl
 * <v-icon color=green>thumb_up</v-icon> Available in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1434852)
 * <v-icon color=green>thumb_up</v-icon> Work is being made to leverage DoH and CDNs to improve performance of web applications [DoH digests](https://tools.ietf.org/html/draft-nottingham-doh-digests-00)
+* <v-icon color=green>thumb_up</v-icon> Specified as a RFC
 * <v-icon color=red>thumb_down</v-icon> Provides more information than regular DNS to resolver operators in order to fingerprint clients, but this is being addressed in the specification
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack and a web server
 * <v-icon color=red>thumb_down</v-icon> Interception/monitoring tools are readily available
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
 * <v-icon color=red>thumb_down</v-icon> Requires TCP
-* <v-icon color=red>thumb_down</v-icon> RFC is in draft stage
 
 ### DNS-over-DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
 
