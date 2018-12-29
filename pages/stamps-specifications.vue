@@ -83,7 +83,7 @@ in order to resolve `hostname`. This is optional, and clients can ignore this in
 Format:
 
 ```text
-"sdns://" || base64url(0x03 || props || VLP(addr) || VLP(hash1, hash2, ...hashn) ||
+"sdns://" || base64url(0x03 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
                        LP(hostname) ||
                        [ || vlen(bootstrap_ip) || bootstrap_ip ])
 ```
