@@ -120,7 +120,7 @@
             name: "Simple DNSCrypt",
             Author: "",
             url: "https://simplednscrypt.org/",
-            protocols: ["DNSCrypt"],
+            protocols: ["DNSCrypt", "DoH"],
             platforms: ["Windows"],
             language: "C#",
             description: "Simple DNSCrypt is a simple management tool to configure dnscrypt-proxy on windows based systems."
