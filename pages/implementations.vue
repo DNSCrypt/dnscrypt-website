@@ -135,7 +135,7 @@
           }, {
             name: "DNSCloak",
             Author: "",
-            url: "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1330471557?mt=8",
+            url: "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1452162351",
             protocols: ["DNSCrypt"],
             platforms: ["iOS"],
             language: "",
