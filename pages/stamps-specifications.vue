@@ -34,7 +34,7 @@ An example list of [public secure DNS resolvers](https://github.com/DNSCrypt/dns
 Format:
 
 ```text
-"sdns://" || base64url(0x01 || props || LP(addr) || LP(pk || LP(providerName))
+"sdns://" || base64url(0x01 || props || LP(addr) || LP(pk) || LP(providerName))
 ```
 
 `0x01` is the protocol identifier for DNSCrypt.
