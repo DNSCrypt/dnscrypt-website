@@ -118,6 +118,7 @@ Scopes are permitted.
 
 - A [golang implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
 - A [.NET implementation of DNS stamps](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) by @bitbeans
+- A [python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
 
 ### Applications
 
