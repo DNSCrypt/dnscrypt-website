@@ -116,11 +116,11 @@ Scopes are permitted.
 
 ### Libraries
 
-- [golang implementation](https://github.com/jedisct1/go-dnsstamps) of DNS stamps
+- [Golang implementation](https://github.com/jedisct1/go-dnsstamps) of DNS stamps
+- [Golang implementation](https://github.com/ameshkov/dnsstamps) of DNS stamps by Adguard
 - [.NET implementation](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) of DNS stamps by @bitbeans
-- [python implementation](https://github.com/chrisss404/python-dnsstamps) of DNS stamps
+- [Python implementation](https://github.com/chrisss404/python-dnsstamps) of DNS stamps
 - [Rust implementation](https://github.com/jedisct1/rust-dnsstamps) of DNS stamps
-- [Javascript implementation](https://github.com/ameshkov/dnsstamps) of DNS stamps
 
 ### Applications
 
