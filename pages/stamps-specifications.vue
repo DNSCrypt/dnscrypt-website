@@ -119,6 +119,8 @@ Scopes are permitted.
 - A [golang implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
 - A [.NET implementation of DNS stamps](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) by @bitbeans
 - A [python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
+- A [Rust implementation](https://github.com/jedisct1/rust-dnsstamps)
+- A [Javascript implementation](https://github.com/ameshkov/dnsstamps)
 
 ### Applications
 
@@ -129,6 +131,7 @@ DNS stamps are known to be used in the following applications:
 - [simple dnscrypt](https://simplednscrypt.org/)
 - [dnscloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-doh-client/id1330471557)
 - [yourfriendlydns](https://github.com/softwareengineer1/YourFriendlyDNS)
+- [adguard](https://adguard.com)
 
 ### Servers lists as DNS stamps
 
