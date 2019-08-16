@@ -73,7 +73,7 @@ be provided for seamless rotations.
 
 `hostname` is the server host name which will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
 
-`path` is the absolute URI path, such as `/.well-known/dns-query`.
+`path` is the absolute URI path, such as `/dns-query`.
 
 `bootstrap_ipi` is the IP address of a recommended resolver accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
@@ -132,6 +132,7 @@ DNS stamps are known to be used in the following applications:
 - [dnscloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-doh-client/id1330471557)
 - [yourfriendlydns](https://github.com/softwareengineer1/YourFriendlyDNS)
 - [adguard](https://adguard.com)
+- [nextdns](https://www.nextdns.io)
 
 ### Servers lists as DNS stamps
 
