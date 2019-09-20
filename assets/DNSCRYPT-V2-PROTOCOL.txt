@@ -139,9 +139,9 @@ Prior to encryption, queries are padded using the ISO/IEC 7816-4
 format. The padding starts with a byte valued 0x80 followed by a
 variable number of NUL bytes.
 
-The length of <client-query-pad> is randomly chosen between 0 and 256
-bytes, but the total length of <client-query> <client-query-pad> must be
-a multiple of 64 bytes.
+The length of <client-query-pad> is randomly chosen between 1 and 256
+bytes (including the leading 0x80), but the total length of <client-query>
+<client-query-pad> must be a multiple of 64 bytes.
 
 For example, an originally unpadded 56-bytes DNS query can be padded as:
 
@@ -157,7 +157,8 @@ or
 --------------------------
 
 Client queries over TCP only differ from queries sent over UDP by the
-padding length computation.
+padding length computation and by the fact that they are prefixed with
+their length, encoded as two little-endian bytes.
 
 Unlike UDP queries, a query sent over TCP can be shorter than the
 response.
@@ -211,10 +212,14 @@ variable number of NUL bytes.
 The total length of <resolver-response> <resolver-response-pad> must
 be a multiple of 64 bytes.
 
-The length of <resolver-response-pad> must be between 0 and 256 bytes,
-and must be constant for a given (<resolver-sk>, <client-nonce>) tuple.
+The length of <resolver-response-pad> must be between 1 and 256 bytes
+(including the leading 0x80), and must be constant for one of these
+tuples:
 
-A pseudo random function can be used to satisfy this requirement.
+- (<resolver-sk>, <client-nonce>)
+- (<shared-key> , <client-nonce>)
+
+A pseudorandom function can be used to satisfy this requirement.
 
 9. Resolver responses over UDP
 ------------------------------
@@ -242,8 +247,9 @@ cannot be verified must be ignored.
 Any client-supplied nonce must be accepted. However, a resolver can
 ignore or refuse queries encrypted using untrusted public keys.
 
-Responses must be padded using the algorithm described in section 8
-and encrypted as described in section 7.
+Responses must be padded using the algorithm described in section 8,
+encrypted as described in section 7, and prefixed with their length
+encoded as two little-endian bytes.
 
 Responses must be send unmodified even if their length exceeds the
 length of the client query.
@@ -443,13 +449,15 @@ sessions, the TCP Fast Open mechanism should be used where available.
 Known open source implementations of the DNSCrypt version 2 protocol are:
 
 - dnscrypt-wrapper - server-side implementation in C
-- powerdns dnsdist - a DNS loadbalancer that provides server-side DNSCrypt
+- Encrypted DNS Server - server-side implementation in Rust
+- PowerDNS dnsdist - a DNS loadbalancer that provides server-side DNSCrypt
 - unbound - a validating, caching resolver that provides server-side DNSCrypt
-- dnscrypt-proxy - client-side implementation in C
+- dnscrypt-proxy - client-side implementation in Go
 - pcap_dnsproxy - client-side implementation in C++
 - dnscrypt-python - client-side implementation in Python
 - dnspython-dnscrypt - client-side implementation in Python
 - YourFriendlyDNS - client-side implementation in C++
+- Adguard - client-side implementation in Go
 
 Known closed source implementations of the protocol :
 

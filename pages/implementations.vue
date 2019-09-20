@@ -165,6 +165,14 @@
           { text: 'Language', value: 'language' },
         ], serverImplementations: [
           {
+            name: "Encrypted DNS Server",
+            author: "Frank Denis (@jedisct1)",
+            url: "https://github.com/jedisct1/encrypted-dns-server",
+            protocols: [ "DNSCrypt", "DoH" ],
+            language: "Rust",
+            description: "DNSCrypt, Anonymized DNSCrypt, DoH server in Rust"
+          },
+          {
             name: "DNSCrypt-Wrapper",
             author: "Yecheng Fu (@cofyc)",
             url: "https://github.com/cofyc/dnscrypt-wrapper",
