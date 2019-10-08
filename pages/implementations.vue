@@ -188,11 +188,21 @@ export default {
           name: "DNSLookup",
           Author: "Andrey Meshkov",
           url: "https://github.com/ameshkov/dnslookup",
-          protocols: ["DNSCrypt"],
+          protocols: ["DNSCrypt", "DoH", "DoT"],
           platforms: ["Linux", "BSD", "Windows", "macOS", "more"],
           language: "Go",
           description:
             "A simple command-line tool to make DNS queries, with support for DNSCrypt and DoH."
+        },
+        {
+          name: "DNSProxy",
+          Author: "Adguard team",
+          url: "https://github.com/AdguardTeam/dnsproxy",
+          protocols: ["DNSCrypt", "DoH", "DoT"],
+          platforms: ["Linux", "BSD", "Windows", "macOS", "more"],
+          language: "Go",
+          description:
+            "A simple client-side proxy with support for DoH, DoT and DNSCrypt."
         },
         {
           name: "Other platforms",
