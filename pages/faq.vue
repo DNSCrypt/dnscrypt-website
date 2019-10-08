@@ -56,8 +56,10 @@ Unfortunately, [DNSSEC has received limited adoption](https://labs.ripe.net/Memb
 * <v-icon color=green>thumb_up</v-icon> Enforces certificate signatures
 * <v-icon color=green>thumb_up</v-icon> Has a complete specification since 2013
 * <v-icon color=green>thumb_up</v-icon> Regular DNS and DNSCrypt can share the same port (although port 443 is recommended due to routers frequently hijacking port 53)
-* <v-icon color=green>thumb_up</v-icon> Post-quantum version in developement, intent to ship in the forthcoming weeks
-* <v-icon color=red>thumb_down</v-icon> Does not have an RFC
+* <v-icon color=green>thumb_up</v-icon> DNSCrypt and DoH can also be served simultaneously on the same port
+* <v-icon color=green>thumb_up</v-icon> Can hide client IP addresses from servers (Anonymized DNSCrypt - current being implemented)
+* <v-icon color=green>thumb_up</v-icon> A prototype using post-quantum cryptography is available
+* <v-icon color=red>thumb_down</v-icon> The specification hasn't been submitted to the IETF yet
 
 <v-container text-xs-center>
   <img class=fill-width alt="DNSCrypt with DNSSEC" src="../assets/DNSCrypt-DNSSEC.png"/>
