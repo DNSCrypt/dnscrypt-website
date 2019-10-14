@@ -122,5 +122,9 @@ Format:
 
 ## Implementations
 
-- A [golang implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
+- A [Go implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
+- Another [Go implementation of DNS stamps](https://github.com/ameshkov/dnsstamps)
 - A [.NET implementation of DNS stamps](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) by @bitbeans
+- A [Rust implemenetation of DNS stamps](https://github.com/jedisct1/rust-dnsstamps/)
+- A [Python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
+- A [Javascript implementation of DNS stamps](https://github.com/rs/node-dnsstamp)
