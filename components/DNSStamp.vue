@@ -1,30 +1,40 @@
 <template>
-    <v-container fluid>
-      <h1>Online DNS Stamp calculator</h1>
-      <v-layout row wrap>
+  <v-container fluid>
+    <h1>Online DNS Stamp calculator</h1>
+    <v-layout row wrap>
       <v-flex xs12 sm2>
-        <v-select label="Protocol" :items='[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}]' v-model="proto" />
-        <v-checkbox label="DNSSEC" v-model="dnssec"/>
-        <v-checkbox label="No logs" v-model="nolog"/>
-        <v-checkbox label="No filter" v-model="nofilter"/>
+        <v-select
+        label="Protocol"
+        :items='[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]'
+        v-model="proto"
+        />
+        <span v-if="proto!=='DNSCryptRelay'">
+          <v-checkbox label="DNSSEC" v-model="dnssec" />
+          <v-checkbox label="No logs" v-model="nolog" />
+          <v-checkbox label="No filter" v-model="nofilter" />
+        </span>
       </v-flex>
       <v-flex xs12 sm6>
-        <v-text-field label="IP Address" type="text" v-model="addr"/>
+        <v-text-field label="IP Address" type="text" v-model="addr" />
         <span v-if="proto==='DNSCrypt'">
-          <v-text-field label="Provider public key" type="text" v-model="pk"/>
-          <v-text-field label="Provider name" type="text" v-model="providerName"/>
+          <v-text-field label="Provider public key" type="text" v-model="pk" />
+          <v-text-field label="Provider name" type="text" v-model="providerName" />
         </span>
         <span v-if="proto==='DoH'">
-          <v-text-field label="Host name (vhost+SNI) and optional port number" type="text" v-model="hostName"/>
-          <v-text-field label="Hashes (comma-separated)" type="text" v-model="hashes"/>
-          <v-text-field label="Path" type="text" v-model="path"/>
+          <v-text-field
+            label="Host name (vhost+SNI) and optional port number"
+            type="text"
+            v-model="hostName"
+          />
+          <v-text-field label="Hashes (comma-separated)" type="text" v-model="hashes" />
+          <v-text-field label="Path" type="text" v-model="path" />
         </span>
       </v-flex>
       <v-flex xs12 sm4>
-        <v-text-field label="Stamp" type="text" :value="stamp" @input="stampUpdated"/>
+        <v-text-field label="Stamp" type="text" :value="stamp" @input="stampUpdated" />
       </v-flex>
-      </v-layout>
-    </v-container>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -57,14 +67,20 @@ export default {
         this.proto = "DNSCrypt";
       } else if (bin[0] === 0x02) {
         this.proto = "DoH";
+      } else if (bin[0] === 0x81) {
+        this.proto = "DNSCryptRelay";
       } else {
         return;
       }
-      let props = bin[1];
-      this.dnssec = !!((props >> 0) & 1);
-      this.nolog = !!((props >> 1) & 1);
-      this.nofilter = !!((props >> 2) & 1);
-      let i = 9;
+      let props = 0;
+      let i = 1;
+      if (this.proto !== "DNSCryptRelay") {
+        props = bin[1];
+        this.dnssec = !!((props >> 0) & 1);
+        this.nolog = !!((props >> 1) & 1);
+        this.nofilter = !!((props >> 2) & 1);
+        i = 9;
+      }
       let addrLen = bin[i++];
       this.addr = bin.slice(i, i + addrLen).toString("utf-8");
       i += addrLen;
@@ -141,10 +157,18 @@ export default {
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
 
+      const dnscryptRelayStamp = () => {
+        let v = [0x81];
+        v.push(addr.length, ...addr);
+        return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
+      };
+
       if (this.proto === "DNSCrypt") {
         return dnscryptStamp();
-      } else {
+      } else if (this.proto === "DoH") {
         return dohStamp();
+      } else {
+        return dnscryptRelayStamp();
       }
     }
   }
