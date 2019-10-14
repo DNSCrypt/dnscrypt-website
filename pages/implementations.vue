@@ -78,12 +78,12 @@
     <h2>Server Setup Guides</h2>
     <p>
       <a
-        href="https://github.com/jedisct1/dnscrypt-proxy/wiki/How-to-setup-your-own-DNSCrypt-server-in-less-than-10-minutes"
+        href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/How-to-setup-your-own-DNSCrypt-server-in-less-than-10-minutes"
       >How to setup your own DNSCrypt server in less than 10 minutes</a>
     </p>
     <p>
       <a
-        href="https://github.com/jedisct1/dnscrypt-proxy/wiki/DNSCrypt-server-with-vultr.com"
+        href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/DNSCrypt-server-with-vultr.com"
       >How to setup your own DNSCrypt server on Vultr</a>
     </p>
     <p>
@@ -108,8 +108,8 @@ export default {
         {
           name: "DNSCrypt-Proxy",
           Author: "Frank Denis (@jedisct1)",
-          url: "https://github.com/jedisct1/dnscrypt-proxy",
-          protocols: ["DNSCrypt", "DoH"],
+          url: "https://github.com/DNSCrypt/dnscrypt-proxy",
+          protocols: ["DNSCrypt", "DoH", "Anonymized DNSCrypt"],
           platforms: ["Linux", "BSD", "Windows", "macOS", "Android", "more"],
           language: "Golang",
           description:
@@ -177,7 +177,7 @@ export default {
         {
           name: "DNSCrypt proxy on Android",
           Author: "",
-          url: "https://github.com/jedisct1/dnscrypt-proxy/issues/41",
+          url: "https://github.com/DNSCrypt/dnscrypt-proxy/issues/41",
           protocols: ["DNSCrypt"],
           platforms: ["Android"],
           language: "",
@@ -226,7 +226,7 @@ export default {
           name: "Encrypted DNS Server",
           author: "Frank Denis (@jedisct1)",
           url: "https://github.com/jedisct1/encrypted-dns-server",
-          protocols: ["DNSCrypt", "DoH"],
+          protocols: ["DNSCrypt", "DoH", "Anonymized DNSCrypt"],
           language: "Rust",
           description:
             "DNSCrypt, Anonymized DNSCrypt, DoH server in Rust. Current reference implementation."
