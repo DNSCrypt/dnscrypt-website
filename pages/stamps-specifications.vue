@@ -134,6 +134,7 @@ DNS stamps are known to be used in the following applications:
 - [yourfriendlydns](https://github.com/softwareengineer1/YourFriendlyDNS)
 - [adguard](https://adguard.com)
 - [nextdns](https://www.nextdns.io)
+- [yogadns](https://yogadns.com)
 
 ### Servers lists as DNS stamps
 

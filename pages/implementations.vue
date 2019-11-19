@@ -213,6 +213,16 @@ export default {
           language: "",
           description:
             "Be a hero and develop free, open-source clients for your favourite platform!"
+        },
+        {
+          name: "YogaDNS",
+          Author: "Initex",
+          url: "https://yogadns.com/",
+          protocols: ["DNSCrypt", "DoH"],
+          platforms: ["Windows"],
+          language: "",
+          description:
+            "An advanced DNS Client for Windows."
         }
       ],
       serverHeaders: [
