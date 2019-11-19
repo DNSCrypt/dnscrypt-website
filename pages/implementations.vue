@@ -5,7 +5,13 @@
       <v-card-title>
         Client Implementations
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
       </v-card-title>
       <v-data-table
         :disable-initial-sort="true"
@@ -18,22 +24,30 @@
         <template slot="items" slot-scope="props">
           <tr :title="props.item.description">
             <td>
-              <a v-if="props.item.url" :href="props.item.url">{{ props.item.name }}</a>
+              <a v-if="props.item.url" :href="props.item.url">{{
+                props.item.name
+              }}</a>
               <span v-else>{{ props.item.name }}</span>
             </td>
             <td>{{ props.item.Author }}</td>
             <td>
-              <span v-for="(protocol, index) in props.item.protocols" :key="index">
+              <span
+                v-for="(protocol, index) in props.item.protocols"
+                :key="index"
+              >
                 {{ protocol }}
-                <span v-if="index == props.item.protocols.length-2">and</span>
-                <span v-if="index < props.item.protocols.length-2">,</span>
+                <span v-if="index == props.item.protocols.length - 2">and</span>
+                <span v-if="index < props.item.protocols.length - 2">,</span>
               </span>
             </td>
             <td>
-              <span v-for="(platform, index) in props.item.platforms" :key="index">
+              <span
+                v-for="(platform, index) in props.item.platforms"
+                :key="index"
+              >
                 {{ platform }}
-                <span v-if="index == props.item.platforms.length-2">and</span>
-                <span v-if="index < props.item.platforms.length-2">,</span>
+                <span v-if="index == props.item.platforms.length - 2">and</span>
+                <span v-if="index < props.item.platforms.length - 2">,</span>
               </span>
             </td>
             <td>{{ props.item.language }}</td>
@@ -47,7 +61,13 @@
       <v-card-title>
         Server Implementations
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
       </v-card-title>
       <v-data-table
         :headers="serverHeaders"
@@ -63,10 +83,13 @@
             </td>
             <td>{{ props.item.author }}</td>
             <td>
-              <span v-for="(protocol, index) in props.item.protocols" :key="index">
+              <span
+                v-for="(protocol, index) in props.item.protocols"
+                :key="index"
+              >
                 {{ protocol }}
-                <span v-if="index == props.item.protocols.length-2">and</span>
-                <span v-if="index < props.item.protocols.length-2">,</span>
+                <span v-if="index == props.item.protocols.length - 2">and</span>
+                <span v-if="index < props.item.protocols.length - 2">,</span>
               </span>
             </td>
             <td>{{ props.item.language }}</td>
@@ -79,15 +102,19 @@
     <p>
       <a
         href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/How-to-setup-your-own-DNSCrypt-server-in-less-than-10-minutes"
-      >How to setup your own DNSCrypt server in less than 10 minutes</a>
+        >How to setup your own DNSCrypt server in less than 10 minutes</a
+      >
     </p>
     <p>
       <a
         href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/DNSCrypt-server-with-vultr.com"
-      >How to setup your own DNSCrypt server on Vultr</a>
+        >How to setup your own DNSCrypt server on Vultr</a
+      >
     </p>
     <p>
-      <a href="https://github.com/jedisct1/encrypted-dns-server">Encrypted DNS Server documentation</a>
+      <a href="https://github.com/jedisct1/encrypted-dns-server"
+        >Encrypted DNS Server documentation</a
+      >
     </p>
   </div>
 </template>
@@ -205,24 +232,13 @@ export default {
             "A simple client-side proxy with support for DoH, DoT and DNSCrypt."
         },
         {
-          name: "Other platforms",
-          Author: "",
-          url: "",
-          protocols: [],
-          platforms: [],
-          language: "",
-          description:
-            "Be a hero and develop free, open-source clients for your favourite platform!"
-        },
-        {
           name: "YogaDNS",
           Author: "Initex",
           url: "https://yogadns.com/",
           protocols: ["DNSCrypt", "DoH"],
           platforms: ["Windows"],
           language: "",
-          description:
-            "An advanced DNS Client for Windows."
+          description: "An advanced DNS Client for Windows."
         }
       ],
       serverHeaders: [
