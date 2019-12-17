@@ -155,3 +155,4 @@ DNS stamps are known to be used in the following applications:
 - [Public resolvers list](https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md)
 - [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v2/opennic.md)
 - [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v2/parental-control.md)
+- [Anonymized DNS relays list](https://download.dnscrypt.info/resolvers-list/v2/relays.md)
