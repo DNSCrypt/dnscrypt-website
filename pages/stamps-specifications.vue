@@ -112,15 +112,28 @@ Format:
 `addr` is the IP address of the server. IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`.
 Scopes are permitted.
 
+## Anonymized DNSCrypt relay stamps
+
+Format:
+
+```text
+"sdns://" || base64url(0x81 || LP(addr))
+```
+
+0x81 is the protocol identifier for a DNSCrypt relay.
+
+addr is the IP address and port, as a string. IPv6 strings must be included in square brackets: [fe80::6d6d:f72c:3ad:60b8]:443.
+
 ## Implementations
 
 ### Libraries
 
-- [Golang implementation](https://github.com/jedisct1/go-dnsstamps) of DNS stamps
-- [Golang implementation](https://github.com/ameshkov/dnsstamps) of DNS stamps by Adguard
-- [.NET implementation](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) of DNS stamps by @bitbeans
-- [Python implementation](https://github.com/chrisss404/python-dnsstamps) of DNS stamps
-- [Rust implementation](https://github.com/jedisct1/rust-dnsstamps) of DNS stamps
+- A [Go implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
+- Another [Go implementation of DNS stamps](https://github.com/ameshkov/dnsstamps)
+- A [.NET implementation of DNS stamps](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) by @bitbeans
+- A [Rust implemenetation of DNS stamps](https://github.com/jedisct1/rust-dnsstamps/)
+- A [Python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
+- A [Javascript implementation of DNS stamps](https://github.com/rs/node-dnsstamp)
 
 ### Applications
 
