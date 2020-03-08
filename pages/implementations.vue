@@ -315,6 +315,14 @@ export default {
           protocols: ["DoH"],
           language: "Go",
           description: "A daemon for using DNS over HTTPS"
+        },
+        {
+          name: "CoreDNS",
+          author: "",
+          url: "https://github.com/coredns/coredns",
+          protocols: ["DoH", "DoT", "DNS over gRPC"],
+          language: "Go",
+          description: "A DNS server that chains plugins"
         }
       ]
     };
