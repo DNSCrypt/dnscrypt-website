@@ -154,7 +154,7 @@ export default {
         {
           name: "Pcap_DNSProxy",
           Author: "",
-          url: "https://github.com/chengr28/Pcap_DNSProxy",
+          url: "https://github.com/Lyoko-Jeremie/Pcap_DNSProxy",
           protocols: ["DNSCrypt"],
           platforms: ["Windows", "Linux", "macOS", "OpenWrt/LEDE"],
           language: "C++",
