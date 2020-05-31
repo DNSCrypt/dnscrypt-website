@@ -311,12 +311,12 @@ export default {
           description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
         },
         {
-          name: "Rust-DoH",
+          name: "doh-server",
           author: "Frank Denis (@jedisct1)",
-          url: "https://github.com/jedisct1/rust-doh",
+          url: "https://github.com/jedisct1/doh-server",
           protocols: ["DoH"],
           language: "Rust",
-          description: "rust-DoH supports DNS-over-HTTP/2 (DoH)"
+          description: "Fast and secure DoH proxy server in Rust"
         },
         {
           name: "dnss",
