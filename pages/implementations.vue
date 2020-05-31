@@ -143,6 +143,16 @@ export default {
             "DNSCrypt-Proxy is a command-line proxy for Linux, BSD, Windows, MacOS, Android and more. It bridges applications expecting regular DNS with servers supporting encrypted DNS (DNSCrypt and DoH). DNSCrypt-Proxy can also display the DNS activity, cache results to improve speed, and locally block unwanted content."
         },
         {
+          name: "SecureDNS",
+          Author: "Texnomic (@Texnomic)",
+          url: "https://github.com/Texnomic/SecureDNS",
+          protocols: ["DNSCrypt", "DoH", "DoT", "DoU", "ENS","Anonymized DNSCrypt"],
+          platforms: ["Linux", "Windows", "macOS", "more"],
+          language: "C#",
+          description:
+            "Secure, Modern, Fully-Featured Cross-Architecture & Cross-Platform DNS Server Using C# 8.0 & .NET Core 3.1."
+        },
+        {
           name: "DoH-proxy",
           Author: "Facebook",
           url: "https://facebookexperimental.github.io/doh-proxy/",
