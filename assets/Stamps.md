@@ -147,6 +147,7 @@ DNS stamps are known to be used in the following applications:
 - [adguard](https://adguard.com)
 - [nextdns](https://www.nextdns.io)
 - [yogadns](https://yogadns.com)
+= [Texnomic SecureDNS](https://github.com/Texnomic/SecureDNS)
 
 ### Servers lists as DNS stamps
 
