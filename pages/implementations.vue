@@ -153,6 +153,15 @@ export default {
             "Secure, Modern, Fully-Featured Cross-Architecture & Cross-Platform DNS Server Using C# 8.0 & .NET Core 3.1."
         },
         {
+          name: "Trust DNS",
+          Author: "Surfshark",
+          url: "https://surfshark.com/trust-dns",
+          protocols: ["DNSCrypt", "DoH"],
+          platforms: ["iOS", "Android"],
+          language: "Unknown",
+          description: "A simple client for mobile devices"
+        },
+        {
           name: "DoH-proxy",
           Author: "Facebook",
           url: "https://facebookexperimental.github.io/doh-proxy/",
