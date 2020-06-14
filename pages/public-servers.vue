@@ -74,6 +74,19 @@
 import axios from "axios";
 
 export default {
+  head() {
+    return {
+      title: "DNSCrypt - List of public DoH and DNSCrypt servers",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "An extensive and constantly updated list of encrypted DNS servers (DoH and DNSCrypt) that are free and publicly accessible."
+        }
+      ]
+    };
+  },
   created() {
     axios
       .get(

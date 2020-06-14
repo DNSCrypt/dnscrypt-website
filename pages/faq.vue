@@ -155,3 +155,20 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 All the solutions above offer the same practical security level. Compatibility with existing tools and infrastructure is what makes an actual difference.
 
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: "DNSCrypt - FAQ - DNSCrypt vs DoH",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "DNSCrypt vs DoH - A comparison of options for secure DNS."
+        }
+      ]
+    };
+  }
+};
+</script>

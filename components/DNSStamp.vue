@@ -5,10 +5,12 @@
       <v-flex xs12 sm2>
         <v-select
         label="Protocol"
-        :items='[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]'
+        :items="[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]"
         v-model="proto"
         />
-        <span v-if="proto!=='DNSCryptRelay'">
+        <span
+          v-if="proto!=='DNSCryptRelay'"
+        >
           <v-checkbox label="DNSSEC" v-model="dnssec" />
           <v-checkbox label="No logs" v-model="nolog" />
           <v-checkbox label="No filter" v-model="nofilter" />
@@ -42,6 +44,19 @@ const URLSafeBase64 = require("urlsafe-base64");
 
 export default {
   name: "DNSStamp",
+  head() {
+    return {
+      title: "DNSCrypt - DNS Stamps online calculator",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Online calculator for DNS Stamps, an encoding format for parameters required to connect to DNS servers (DoH, DNSCrypt and more)."
+        }
+      ]
+    };
+  },
   data() {
     return {
       proto: "DNSCrypt",

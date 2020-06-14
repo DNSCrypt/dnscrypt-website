@@ -23,4 +23,13 @@ Pioneered by the [OpenBSD](https://openbsd.org/) operating system [circa 2008](h
 
 The [DNSCrypt protocol](protocol) was then specifically designed for that purpose. DNSCrypt version 2 was specified and implemented in 2013, and is probably the most deployed encrypted DNS protocol to date.
 
+## Anonymized DNS
+
+In October 2019, [Anonymized DNS](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS) was announced.
+
+Anonymized DNS improves over the original protocol and DoH by hiding client IP addresses in addition to encrypting queries.
+
+## Community
+
+Feel free to join the [subreddit dedicated to discussing DNSCrypt](https://www.reddit.com/r/dnscrypt/)!
 </template>
