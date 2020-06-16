@@ -5,7 +5,7 @@
       <v-flex xs12 sm2>
         <v-select
         label="Protocol"
-        :items="[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]"
+        :items='[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]'
         v-model="proto"
         />
         <span
