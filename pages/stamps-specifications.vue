@@ -10,7 +10,7 @@ Stamps can be quickly viewed/modified/created using this [VueJS component](https
 
 An online demo is accessible here: [https://stamps.dnscrypt.info](https://stamps.dnscrypt.info)
 
-An example list of [public secure DNS resolvers](https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v2/public-resolvers.md), with their DNS stamps.
+An example list of [public secure DNS resolvers](https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md), with their DNS stamps.
 
 ## Common definitions
 
@@ -153,8 +153,8 @@ DNS stamps are known to be used in the following applications:
 
 - [Quad9 resolvers list](https://www.quad9.net/quad9-resolvers.md)
 - [CleanBrowsing DNSCrypt](https://cleanbrowsing.org/dnscrypt) and [DoH](https://cleanbrowsing.org/dnsoverhttps) servers
-- [Public resolvers list](https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md)
-- [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v2/opennic.md)
-- [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v2/parental-control.md)
-- [Anonymized DNS relays list](https://download.dnscrypt.info/resolvers-list/v2/relays.md)
+- [Public resolvers list](https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md)
+- [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v3/opennic.md)
+- [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v3/parental-control.md)
+- [Anonymized DNS relays list](https://download.dnscrypt.info/resolvers-list/v3/relays.md)
 </template>
