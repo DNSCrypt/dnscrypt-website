@@ -39,7 +39,7 @@ Format:
 
 `0x01` is the protocol identifier for DNSCrypt.
 
-`props` is a small-endian 64 bit value that represents informal properties about the resolver. It is a logical `OR` combination of the following values:
+`props` is a little-endian 64 bit value that represents informal properties about the resolver. It is a logical `OR` combination of the following values:
 
 - `1`: the server supports DNSSEC
 - `2`: the server doesn't keep logs
@@ -75,7 +75,7 @@ be provided for seamless rotations.
 
 `path` is the absolute URI path, such as `/dns-query`.
 
-`bootstrap_ipi` is the IP address of a recommended resolver accessible over standard DNS
+`bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
 
 ## DNS-over-TLS stamps
@@ -85,7 +85,7 @@ Format:
 ```text
 "sdns://" || base64url(0x03 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
                        LP(hostname) ||
-                       [ || vlen(bootstrap_ip) || bootstrap_ip ])
+                       [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
 `addr` is the IP address of the server. It can be an empty string, or just a port number.
@@ -98,7 +98,7 @@ be provided for seamless rotations.
 
 `hostname` is the server host name which will also be used as a SNI name.
 
-`bootstrap_ipi` is the IP address of a recommended resolver accessible over standard DNS
+`bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
 
 ## Plain DNS stamps
@@ -148,6 +148,7 @@ DNS stamps are known to be used in the following applications:
 - [adguard](https://adguard.com)
 - [nextdns](https://www.nextdns.io)
 - [yogadns](https://yogadns.com)
+= [Texnomic SecureDNS](https://github.com/Texnomic/SecureDNS)
 
 ### Servers lists as DNS stamps
 

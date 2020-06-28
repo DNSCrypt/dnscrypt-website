@@ -4,31 +4,35 @@
     <v-layout row wrap>
       <v-flex xs12 sm2>
         <v-select
-        label="Protocol"
-        :items='[{"text":"DNSCrypt", "value":"DNSCrypt"}, {"text":"DNS-over-HTTP/2", "value":"DoH"}, {"text":"Anonymized DNS", "value":"DNSCryptRelay"}]'
-        v-model="proto"
+          label="Protocol"
+          :items="[{'text':'DNSCrypt', 'value':'DNSCrypt'}, {'text':'DNS-over-HTTP (DoH)', 'value':'DoH'}, {'text':'Anonymized DNS', 'value':'DNSCryptRelay'}, {'text':'DNS-over-TLS', 'value':'DoT'}, {'text':'Plain DNS', 'value':'PlainDNS'}]"
+          v-model="proto"
         />
-        <span
-          v-if="proto!=='DNSCryptRelay'"
-        >
+        <span v-if="proto!=='DNSCryptRelay'">
           <v-checkbox label="DNSSEC" v-model="dnssec" />
           <v-checkbox label="No logs" v-model="nolog" />
           <v-checkbox label="No filter" v-model="nofilter" />
         </span>
       </v-flex>
       <v-flex xs12 sm6>
-        <v-text-field label="IP Address" type="text" v-model="addr" />
+        <v-text-field
+          label="IP Address (IPv6 addresses must be in [ ] brackets)"
+          type="text"
+          v-model="addr"
+        />
         <span v-if="proto==='DNSCrypt'">
           <v-text-field label="Provider public key" type="text" v-model="pk" />
           <v-text-field label="Provider name" type="text" v-model="providerName" />
         </span>
-        <span v-if="proto==='DoH'">
+        <span v-if="proto==='DoH' || proto==='DoT'">
           <v-text-field
             label="Host name (vhost+SNI) and optional port number"
             type="text"
             v-model="hostName"
           />
           <v-text-field label="Hashes (comma-separated)" type="text" v-model="hashes" />
+        </span>
+        <span v-if="proto==='DoH'">
           <v-text-field label="Path" type="text" v-model="path" />
         </span>
       </v-flex>
@@ -78,10 +82,14 @@ export default {
         return;
       }
       let bin = URLSafeBase64.decode(stamp.substr(7));
-      if (bin[0] === 0x01) {
+      if (bin[0] === 0x00) {
+        this.proto = "PlainDNS";
+      } else if (bin[0] === 0x01) {
         this.proto = "DNSCrypt";
       } else if (bin[0] === 0x02) {
         this.proto = "DoH";
+      } else if (bin[0] === 0x03) {
+        this.proto = "DoT";
       } else if (bin[0] === 0x81) {
         this.proto = "DNSCryptRelay";
       } else {
@@ -127,10 +135,28 @@ export default {
         this.path = bin.slice(i, i + pathLen).toString("utf-8");
       };
 
+      const dotStamp = () => {
+        this.hashes = "";
+        for (;;) {
+          let hashLen = bin[i++];
+          this.hashes += bin.slice(i, i + (hashLen & 0x7f)).toString("hex");
+          i += hashLen & 0x7f;
+          if ((hashLen & 0x80) == 0x80) {
+            this.hashes += ",";
+          } else {
+            break;
+          }
+        }
+        let hostNameLen = bin[i++];
+        this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
+      };
+
       if (this.proto === "DNSCrypt") {
         dnscryptStamp();
       } else if (this.proto === "DoH") {
         dohStamp();
+      } else if (this.proto === "DoT") {
+        dotStamp();
       }
     }
   },
@@ -172,8 +198,35 @@ export default {
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
 
+      const dotStamp = () => {
+        let v = [0x03, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
+        v.push(addr.length, ...addr);
+        let hashes = [];
+        try {
+          hashes = this.hashes
+            .split(/ *, */)
+            .map(h => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+        } catch (e) {}
+        for (let i = 0, j = hashes.length; i < j; i++) {
+          let length = hashes[i].length;
+          if (i < j - 1) {
+            length |= 0x80;
+          }
+          v.push(length, ...hashes[i]);
+        }
+        let hostName = this.hostName.split("").map(c => c.charCodeAt());
+        v.push(hostName.length, ...hostName);
+        return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
+      };
+
       const dnscryptRelayStamp = () => {
         let v = [0x81];
+        v.push(addr.length, ...addr);
+        return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
+      };
+
+      const plainDNSStamp = () => {
+        let v = [0x00, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
         v.push(addr.length, ...addr);
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
@@ -182,6 +235,10 @@ export default {
         return dnscryptStamp();
       } else if (this.proto === "DoH") {
         return dohStamp();
+      } else if (this.proto === "PlainDNS") {
+        return plainDNSStamp();
+      } else if (this.proto === "DoT") {
+        return dotStamp();
       } else {
         return dnscryptRelayStamp();
       }
