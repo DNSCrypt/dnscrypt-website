@@ -168,16 +168,6 @@ export default {
           description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
         },
         {
-          name: "Pcap_DNSProxy",
-          Author: "",
-          url: "https://github.com/Lyoko-Jeremie/Pcap_DNSProxy",
-          protocols: ["DNSCrypt"],
-          platforms: ["Windows", "Linux", "macOS", "OpenWrt/LEDE"],
-          language: "C++",
-          description:
-            "Pcap_DNSCrypt is a local DNS proxy based on WinPcap and LibPcap"
-        },
-        {
           name: "YourFriendlyDNS",
           Author: "",
           url: "https://github.com/softwareengineer1/YourFriendlyDNS",
