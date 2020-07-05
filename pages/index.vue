@@ -3,7 +3,7 @@
   <img class=fill-width src="../assets/dnscrypt.png" alt=DNSCrypt />
 </v-container>
 
-DNSCrypt is a protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.
+<a href="https://dnscrypt.info/">DNSCrypt</a> is a protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.
 
 It is an open specification, with free and open source reference implementations, and it is not affiliated with any company nor organization.
 
