@@ -245,6 +245,15 @@ export default {
           platforms: ["Windows"],
           language: "Closed source",
           description: "An advanced DNS Client for Windows."
+        },
+        {
+          name: "RethinkDNS",
+          Author: "Celzero",
+          url: "https://www.rethinkdns.com/",
+          protocols: ["DNSCrypt"],
+          platforms: ["Android"],
+          language: "Go, Kotlin",
+          description: "A free and open source DNSCrypt v2 client for Android."
         }
       ],
       serverHeaders: [
