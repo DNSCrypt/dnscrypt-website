@@ -1,9 +1,10 @@
 const path = require("path");
 
 module.exports = {
-  mode: "universal",
   plugins: ["~plugins/vuetify.js", "~plugins/ymap.js"],
   modules: ["@nuxtjs/markdownit", "@nuxtjs/sitemap"],
+
+  target: 'static',
 
   sitemap: {
     hostname: "https://dnscrypt.info",
@@ -35,17 +36,17 @@ module.exports = {
       lang: "en"
     },
     meta: [{
-        charset: "utf-8"
-      },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1"
-      },
-      {
-        hid: "description",
-        name: "description",
-        content: "New home of the DNSCrypt project, now implementing multiple protocols to improve DNS security. Download official DNSCrypt & DoH servers and clients here."
-      }
+      charset: "utf-8"
+    },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1"
+    },
+    {
+      hid: "description",
+      name: "description",
+      content: "New home of the DNSCrypt project, now implementing multiple protocols to improve DNS security. Download official DNSCrypt & DoH servers and clients here."
+    }
     ]
   },
   /*
