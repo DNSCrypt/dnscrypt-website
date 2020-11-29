@@ -5,10 +5,16 @@
       <v-flex xs12 sm2>
         <v-select
           label="Protocol"
-          :items="[{'text':'DNSCrypt', 'value':'DNSCrypt'}, {'text':'DNS-over-HTTP (DoH)', 'value':'DoH'}, {'text':'Anonymized DNS', 'value':'DNSCryptRelay'}, {'text':'DNS-over-TLS', 'value':'DoT'}, {'text':'Plain DNS', 'value':'PlainDNS'}]"
+          :items="[
+            { text: 'DNSCrypt', value: 'DNSCrypt' },
+            { text: 'DNS-over-HTTP (DoH)', value: 'DoH' },
+            { text: 'Anonymized DNS', value: 'DNSCryptRelay' },
+            { text: 'DNS-over-TLS', value: 'DoT' },
+            { text: 'Plain DNS', value: 'PlainDNS' },
+          ]"
           v-model="proto"
         />
-        <span v-if="proto!=='DNSCryptRelay'">
+        <span v-if="proto !== 'DNSCryptRelay'">
           <v-checkbox label="DNSSEC" v-model="dnssec" />
           <v-checkbox label="No logs" v-model="nolog" />
           <v-checkbox label="No filter" v-model="nofilter" />
@@ -20,24 +26,37 @@
           type="text"
           v-model="addr"
         />
-        <span v-if="proto==='DNSCrypt'">
+        <span v-if="proto === 'DNSCrypt'">
           <v-text-field label="Provider public key" type="text" v-model="pk" />
-          <v-text-field label="Provider name" type="text" v-model="providerName" />
+          <v-text-field
+            label="Provider name"
+            type="text"
+            v-model="providerName"
+          />
         </span>
-        <span v-if="proto==='DoH' || proto==='DoT'">
+        <span v-if="proto === 'DoH' || proto === 'DoT'">
           <v-text-field
             label="Host name (vhost+SNI) and optional port number"
             type="text"
             v-model="hostName"
           />
-          <v-text-field label="Hashes (comma-separated)" type="text" v-model="hashes" />
+          <v-text-field
+            label="Hashes (comma-separated)"
+            type="text"
+            v-model="hashes"
+          />
         </span>
-        <span v-if="proto==='DoH'">
+        <span v-if="proto === 'DoH'">
           <v-text-field label="Path" type="text" v-model="path" />
         </span>
       </v-flex>
       <v-flex xs12 sm4>
-        <v-text-field label="Stamp" type="text" :value="stamp" @input="stampUpdated" />
+        <v-text-field
+          label="Stamp"
+          type="text"
+          :value="stamp"
+          @input="stampUpdated"
+        />
       </v-flex>
     </v-layout>
   </v-container>
@@ -56,9 +75,9 @@ export default {
           hid: "description",
           name: "description",
           content:
-            "Online calculator for DNS Stamps, an encoding format for parameters required to connect to DNS servers (DoH, DNSCrypt and more)."
-        }
-      ]
+            "Online calculator for DNS Stamps, an encoding format for parameters required to connect to DNS servers (DoH, DNSCrypt and more).",
+        },
+      ],
     };
   },
   data() {
@@ -72,7 +91,7 @@ export default {
       providerName: "2.dnscrypt-cert.",
       hostName: "",
       hashes: "",
-      path: "/dns-query"
+      path: "/dns-query",
     };
   },
   methods: {
@@ -158,19 +177,21 @@ export default {
       } else if (this.proto === "DoT") {
         dotStamp();
       }
-    }
+    },
   },
   computed: {
-    stamp: function() {
+    stamp: function () {
       let props = (this.dnssec << 0) | (this.nolog << 1) | (this.nofilter << 2);
-      let addr = this.addr.split("").map(c => c.charCodeAt());
+      let addr = this.addr.split("").map((c) => c.charCodeAt());
 
       const dnscryptStamp = () => {
         let v = [0x01, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
         v.push(addr.length, ...addr);
         let pk = Buffer.from(this.pk.replace(/[: \t]/g, ""), "hex");
         v.push(pk.length, ...pk);
-        let providerName = this.providerName.split("").map(c => c.charCodeAt());
+        let providerName = this.providerName
+          .split("")
+          .map((c) => c.charCodeAt());
         v.push(providerName.length, ...providerName);
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
@@ -182,18 +203,22 @@ export default {
         try {
           hashes = this.hashes
             .split(/ *, */)
-            .map(h => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+            .map((h) => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
         } catch (e) {}
-        for (let i = 0, j = hashes.length; i < j; i++) {
-          let length = hashes[i].length;
-          if (i < j - 1) {
-            length |= 0x80;
+        if (hashes.length === 0) {
+          v.push(0);
+        } else {
+          for (let i = 0, j = hashes.length; i < j; i++) {
+            let length = hashes[i].length;
+            if (i < j - 1) {
+              length |= 0x80;
+            }
+            v.push(length, ...hashes[i]);
           }
-          v.push(length, ...hashes[i]);
         }
-        let hostName = this.hostName.split("").map(c => c.charCodeAt());
+        let hostName = this.hostName.split("").map((c) => c.charCodeAt());
         v.push(hostName.length, ...hostName);
-        let path = this.path.split("").map(c => c.charCodeAt());
+        let path = this.path.split("").map((c) => c.charCodeAt());
         v.push(path.length, ...path);
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
@@ -205,16 +230,20 @@ export default {
         try {
           hashes = this.hashes
             .split(/ *, */)
-            .map(h => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+            .map((h) => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
         } catch (e) {}
-        for (let i = 0, j = hashes.length; i < j; i++) {
-          let length = hashes[i].length;
-          if (i < j - 1) {
-            length |= 0x80;
+        if (hashes.length === 0) {
+          v.push(0);
+        } else {
+          for (let i = 0, j = hashes.length; i < j; i++) {
+            let length = hashes[i].length;
+            if (i < j - 1) {
+              length |= 0x80;
+            }
+            v.push(length, ...hashes[i]);
           }
-          v.push(length, ...hashes[i]);
         }
-        let hostName = this.hostName.split("").map(c => c.charCodeAt());
+        let hostName = this.hostName.split("").map((c) => c.charCodeAt());
         v.push(hostName.length, ...hostName);
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
@@ -242,7 +271,7 @@ export default {
       } else {
         return dnscryptRelayStamp();
       }
-    }
-  }
+    },
+  },
 };
 </script>
