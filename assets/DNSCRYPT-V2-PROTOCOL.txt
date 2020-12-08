@@ -400,8 +400,8 @@ or
 - a certificate with a higher serial number than the current one is
 available.
 
-13. Operational perspective
----------------------------
+13. Operational considerations
+------------------------------
 
 Special attention should be paid to the uniqueness of the generated
 secret keys.
@@ -440,8 +440,10 @@ DNS queries. In addition, DNSCrypt offers some mitigation against
 abusing resolvers to conduct DDoS attacks. Accepting unauthenticated
 queries on the same port would defeat this mechanism.
 
-As this version of the protocol may require many short-lived TCP
-sessions, the TCP Fast Open mechanism should be used where available.
+As a client is likely to reuse the same key pair many times, servers are
+encouraged to cache shared keys instead of performing the X25519
+operation for each query. This makes the computational overhead of
+DNSCrypt negligible compared to plain DNS.
 
 14. Implementations
 -------------------
@@ -457,10 +459,6 @@ Known open source implementations of the DNSCrypt version 2 protocol are:
 - dnscrypt-python - client-side implementation in Python
 - dnspython-dnscrypt - client-side implementation in Python
 - YourFriendlyDNS - client-side implementation in C++
-- Adguard - client-side implementation in Go
+- Adguard - client-side and server-side implementations in Go
 - reklatsmasters/dnscrypt - client implementation in pure JavaScript
-
-Known closed source implementations of the protocol :
-
-- OpenNIC Fusl servers - server-side implementation as a Linux kernel module
-- Cisco OpenDNS - server-side implementation for djbdns
+- Texnomic SecureDNS - server implementation in C#
