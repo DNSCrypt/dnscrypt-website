@@ -30,7 +30,10 @@
           <v-list-tile-title>DNS Stamps</v-list-tile-title>
         </v-list-tile>
       </v-list>
-      <v-toolbar-side-icon slot="activator" class="hidden-md-and-up"></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        slot="activator"
+        class="hidden-md-and-up"
+      ></v-toolbar-side-icon>
     </v-menu>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat nuxt to="/implementations">Software</v-btn>
