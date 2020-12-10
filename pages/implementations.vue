@@ -5,7 +5,13 @@
       <v-card-title>
         Client Implementations
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
       </v-card-title>
       <v-data-table
         :disable-initial-sort="true"
@@ -19,22 +25,26 @@
           <tr :title="props.item.description">
             <td>
               <a v-if="props.item.url" :href="props.item.url">
-                {{
-                props.item.name
-                }}
+                {{ props.item.name }}
               </a>
               <span v-else>{{ props.item.name }}</span>
             </td>
             <td>{{ props.item.Author }}</td>
             <td>
-              <span v-for="(protocol, index) in props.item.protocols" :key="index">
+              <span
+                v-for="(protocol, index) in props.item.protocols"
+                :key="index"
+              >
                 {{ protocol }}
                 <span v-if="index == props.item.protocols.length - 2">and</span>
                 <span v-if="index < props.item.protocols.length - 2">,</span>
               </span>
             </td>
             <td>
-              <span v-for="(platform, index) in props.item.platforms" :key="index">
+              <span
+                v-for="(platform, index) in props.item.platforms"
+                :key="index"
+              >
                 {{ platform }}
                 <span v-if="index == props.item.platforms.length - 2">and</span>
                 <span v-if="index < props.item.platforms.length - 2">,</span>
@@ -51,7 +61,13 @@
       <v-card-title>
         Server Implementations
         <v-spacer></v-spacer>
-        <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
       </v-card-title>
       <v-data-table
         :headers="serverHeaders"
@@ -67,7 +83,10 @@
             </td>
             <td>{{ props.item.author }}</td>
             <td>
-              <span v-for="(protocol, index) in props.item.protocols" :key="index">
+              <span
+                v-for="(protocol, index) in props.item.protocols"
+                :key="index"
+              >
                 {{ protocol }}
                 <span v-if="index == props.item.protocols.length - 2">and</span>
                 <span v-if="index < props.item.protocols.length - 2">,</span>
@@ -83,15 +102,19 @@
     <p>
       <a
         href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/How-to-setup-your-own-DNSCrypt-server-in-less-than-10-minutes"
-      >How to setup your own DNSCrypt server in less than 10 minutes</a>
+        >How to setup your own DNSCrypt server in less than 10 minutes</a
+      >
     </p>
     <p>
       <a
         href="https://github.com/DNSCrypt/dnscrypt-proxy/wiki/DNSCrypt-server-with-vultr.com"
-      >How to setup your own DNSCrypt server on Vultr</a>
+        >How to setup your own DNSCrypt server on Vultr</a
+      >
     </p>
     <p>
-      <a href="https://github.com/jedisct1/encrypted-dns-server">Encrypted DNS Server documentation</a>
+      <a href="https://github.com/jedisct1/encrypted-dns-server"
+        >Encrypted DNS Server documentation</a
+      >
     </p>
   </div>
 </template>
@@ -106,9 +129,9 @@ export default {
           hid: "description",
           name: "description",
           content:
-            "Applications to run and connect to encrypted DNS servers (DoH and DNSCrypt)."
-        }
-      ]
+            "Applications to run and connect to encrypted DNS servers (DoH and DNSCrypt).",
+        },
+      ],
     };
   },
   data() {
@@ -119,7 +142,7 @@ export default {
         { text: "Author", value: "Author" },
         { text: "Protocols", value: "protocols" },
         { text: "Platforms", value: "platforms" },
-        { text: "Language", value: "language" }
+        { text: "Language", value: "language" },
       ],
       clientImplementations: [
         {
@@ -130,7 +153,7 @@ export default {
           platforms: ["Linux", "BSD", "Windows", "macOS", "Android", "more"],
           language: "Go",
           description:
-            "Reference implementation - DNSCrypt-Proxy is a command-line proxy for Linux, BSD, Windows, MacOS, Android and more. It bridges applications expecting regular DNS with servers supporting encrypted DNS (DNSCrypt and DoH). DNSCrypt-Proxy can also display the DNS activity, cache results to improve speed, and locally block unwanted content."
+            "Reference implementation - DNSCrypt-Proxy is a command-line proxy for Linux, BSD, Windows, MacOS, Android and more. It bridges applications expecting regular DNS with servers supporting encrypted DNS (DNSCrypt and DoH). DNSCrypt-Proxy can also display the DNS activity, cache results to improve speed, and locally block unwanted content.",
         },
         {
           name: "SecureDNS",
@@ -142,12 +165,12 @@ export default {
             "DoT",
             "DoU",
             "ENS",
-            "Anonymized DNSCrypt"
+            "Anonymized DNSCrypt",
           ],
           platforms: ["Linux", "Windows", "macOS", "more"],
           language: "C#",
           description:
-            "Secure, Modern, Fully-Featured Cross-Architecture & Cross-Platform DNS Server Using C# 8.0 & .NET Core 3.1."
+            "Secure, Modern, Fully-Featured Cross-Architecture & Cross-Platform DNS Server Using C# 8.0 & .NET Core 3.1.",
         },
         {
           name: "Trust DNS",
@@ -156,7 +179,7 @@ export default {
           protocols: ["DNSCrypt", "DoH"],
           platforms: ["iOS", "Android"],
           language: "Closed source",
-          description: "A simple client for mobile devices"
+          description: "A simple client for mobile devices",
         },
         {
           name: "DoH-proxy",
@@ -165,7 +188,7 @@ export default {
           protocols: ["DoH"],
           platforms: ["Linux", "BSD", "Windows", "macOS", "more"],
           language: "Python",
-          description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
+          description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)",
         },
         {
           name: "YourFriendlyDNS",
@@ -175,7 +198,7 @@ export default {
           platforms: ["Linux", "Windows", "macOS", "Android"],
           language: "C++",
           description:
-            "YourFriendlyDNS is a local, multi-platform (Linux, Windows, macOS, Android) caching DNS proxy written in C++"
+            "YourFriendlyDNS is a local, multi-platform (Linux, Windows, macOS, Android) caching DNS proxy written in C++",
         },
         {
           name: "Simple DNSCrypt",
@@ -185,7 +208,7 @@ export default {
           platforms: ["Windows"],
           language: "C#",
           description:
-            "Simple DNSCrypt is a simple management tool to configure dnscrypt-proxy on windows based systems."
+            "Simple DNSCrypt is a simple management tool to configure dnscrypt-proxy on windows based systems.",
         },
         {
           name: "dnscrypt-proxy switcher",
@@ -194,7 +217,7 @@ export default {
           protocols: ["DNSCrypt"],
           platforms: ["macOS"],
           language: "Shell",
-          description: "dnscrypt-proxy switcher is a plugin for BitBar."
+          description: "dnscrypt-proxy switcher is a plugin for BitBar.",
         },
         {
           name: "DNSCloak",
@@ -205,7 +228,7 @@ export default {
           platforms: ["iOS"],
           language: "Apache Cordova",
           description:
-            "DNSCloak is a full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required."
+            "DNSCloak is a full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required.",
         },
         {
           name: "DNSCrypt proxy on Android",
@@ -215,7 +238,7 @@ export default {
           platforms: ["Android"],
           language: "English",
           description:
-            "Official pre-compiled binaries are available for Android. A Magisk module is also available. See thread on running DNSCrypt proxy on Android for more information."
+            "Official pre-compiled binaries are available for Android. A Magisk module is also available. See thread on running DNSCrypt proxy on Android for more information.",
         },
         {
           name: "DNSLookup",
@@ -225,7 +248,7 @@ export default {
           platforms: ["Linux", "BSD", "Windows", "macOS", "more"],
           language: "Go",
           description:
-            "A simple command-line tool to make DNS queries, with support for DNSCrypt and DoH."
+            "A simple command-line tool to make DNS queries, with support for DNSCrypt and DoH.",
         },
         {
           name: "DNSProxy",
@@ -235,7 +258,7 @@ export default {
           platforms: ["Linux", "BSD", "Windows", "macOS", "more"],
           language: "Go",
           description:
-            "A simple client-side proxy with support for DoH, DoT and DNSCrypt."
+            "A simple client-side proxy with support for DoH, DoT and DNSCrypt.",
         },
         {
           name: "YogaDNS",
@@ -244,7 +267,7 @@ export default {
           protocols: ["DNSCrypt", "DoH"],
           platforms: ["Windows"],
           language: "Closed source",
-          description: "An advanced DNS Client for Windows."
+          description: "An advanced DNS Client for Windows.",
         },
         {
           name: "RethinkDNS",
@@ -253,14 +276,14 @@ export default {
           protocols: ["DNSCrypt"],
           platforms: ["Android"],
           language: "Go, Kotlin",
-          description: "A free and open source DNSCrypt v2 client for Android."
-        }
+          description: "A free and open source DNSCrypt v2 client for Android.",
+        },
       ],
       serverHeaders: [
         { text: "Name", value: "name" },
         { text: "Author", value: "author" },
         { text: "Protocols", value: "protocols" },
-        { text: "Language", value: "language" }
+        { text: "Language", value: "language" },
       ],
       serverImplementations: [
         {
@@ -270,7 +293,7 @@ export default {
           protocols: ["DNSCrypt", "DoH", "Anonymized DNSCrypt"],
           language: "Rust",
           description:
-            "Reference implementation - DNSCrypt, Anonymized DNSCrypt, DoH proxy in Rust. Current reference implementation."
+            "Reference implementation - DNSCrypt, Anonymized DNSCrypt, DoH proxy in Rust. Current reference implementation.",
         },
         {
           name: "DNSCrypt-Wrapper",
@@ -278,7 +301,7 @@ export default {
           url: "https://github.com/cofyc/dnscrypt-wrapper",
           protocols: ["DNSCrypt"],
           language: "C",
-          description: "DNSCrypt-Wrapper is a DNSCrypt proxy."
+          description: "DNSCrypt-Wrapper is a DNSCrypt proxy.",
         },
         {
           name: "Official Docker container (Unbound+Encrypted DNS)",
@@ -287,7 +310,7 @@ export default {
           protocols: ["DNSCrypt"],
           language: "Docker",
           description:
-            "Ready-to-use Docker image to run your own secure DNS resolver"
+            "Ready-to-use Docker image to run your own secure DNS resolver",
         },
         {
           name: "Unbound",
@@ -296,7 +319,7 @@ export default {
           protocols: ["DNSCrypt", "DoT"],
           language: "C",
           description:
-            "Unbound by NLnetLabs, supports both DNS-over-TLS and DNSCrypt."
+            "Unbound by NLnetLabs, supports both DNS-over-TLS and DNSCrypt.",
         },
         {
           name: "dnsdist",
@@ -305,7 +328,7 @@ export default {
           protocols: ["DNSCrypt", "DoH", "DoT"],
           language: "C++",
           description:
-            "dnsdist by PowerDNS, supports both DNS-over-TLS and DNSCrypt."
+            "dnsdist by PowerDNS, supports both DNS-over-TLS and DNSCrypt.",
         },
         {
           name: "DoH-proxy",
@@ -313,7 +336,7 @@ export default {
           url: "https://facebookexperimental.github.io/doh-proxy/",
           protocols: ["DoH"],
           language: "Python",
-          description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)"
+          description: "DoH-proxy by Facebook, supports DNS-over-HTTP/2 (DoH)",
         },
         {
           name: "doh-server",
@@ -321,7 +344,7 @@ export default {
           url: "https://github.com/jedisct1/doh-server",
           protocols: ["DoH"],
           language: "Rust",
-          description: "Fast and secure DoH proxy server in Rust"
+          description: "Fast and secure DoH proxy server in Rust",
         },
         {
           name: "dnss",
@@ -329,7 +352,7 @@ export default {
           url: "https://blitiri.com.ar/git/r/dnss/",
           protocols: ["DoH"],
           language: "Go",
-          description: "A daemon for using DNS over HTTPS"
+          description: "A daemon for using DNS over HTTPS",
         },
         {
           name: "CoreDNS",
@@ -337,10 +360,10 @@ export default {
           url: "https://github.com/coredns/coredns",
           protocols: ["DoH", "DoT", "DNS over gRPC"],
           language: "Go",
-          description: "A DNS server that chains plugins"
-        }
-      ]
+          description: "A DNS server that chains plugins",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

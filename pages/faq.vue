@@ -165,10 +165,10 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "DNSCrypt vs DoH - A comparison of options for secure DNS."
-        }
-      ]
+          content: "DNSCrypt vs DoH - A comparison of options for secure DNS.",
+        },
+      ],
     };
-  }
+  },
 };
 </script>

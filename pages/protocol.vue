@@ -1,5 +1,5 @@
 <template>
-  <pre>{{ProtoText}}</pre>
+  <pre>{{ ProtoText }}</pre>
 </template>
 
 <script>
@@ -13,15 +13,15 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: "Specification of the DNSCrypt protocol version 2"
-        }
-      ]
+          content: "Specification of the DNSCrypt protocol version 2",
+        },
+      ],
     };
   },
   data() {
     return {
-      ProtoText
+      ProtoText,
     };
-  }
+  },
 };
 </script>

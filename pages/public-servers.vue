@@ -4,50 +4,54 @@
     :items="items"
     :loading="loading"
     class="elevation-1"
-    :rows-per-page-items="[50,25,10,{'text':'All','value':-1}]"
+    :rows-per-page-items="[50, 25, 10, { text: 'All', value: -1 }]"
   >
     <template slot="items" slot-scope="props">
       <td>
         <v-dialog v-model="dialog" width="50%">
           <template v-slot:activator="{ on }">
             <v-badge>
-              <span v-on="on" :style="{ cursor: 'pointer'}">{{ props.item.name }}</span>
+              <span v-on="on" :style="{ cursor: 'pointer' }">{{
+                props.item.name
+              }}</span>
               <span slot="badge" title="IPv6" v-if="props.item.ipv6">v6</span>
             </v-badge>
           </template>
           <v-card>
-            <v-card-title class="headline grey lighten-2" primary-title>{{props.item.name}}</v-card-title>
-            <v-card-text>{{props.item.description}}</v-card-text>
+            <v-card-title class="headline grey lighten-2" primary-title>{{
+              props.item.name
+            }}</v-card-title>
+            <v-card-text>{{ props.item.description }}</v-card-text>
             <v-card-text>
               <v-simple-table>
                 <tbody>
                   <tr>
                     <th class="text-right">Protocol</th>
-                    <td>{{props.item.proto}}</td>
+                    <td>{{ props.item.proto }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">Addresses</th>
-                    <td>{{props.item.addrs}}</td>
+                    <td>{{ props.item.addrs }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">Ports</th>
-                    <td>{{props.item.ports}}</td>
+                    <td>{{ props.item.ports }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">DNSSEC</th>
-                    <td>{{props.item.dnssec}}</td>
+                    <td>{{ props.item.dnssec }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">No filters</th>
-                    <td>{{props.item.nofilter}}</td>
+                    <td>{{ props.item.nofilter }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">No logs</th>
-                    <td>{{props.item.nolog}}</td>
+                    <td>{{ props.item.nolog }}</td>
                   </tr>
                   <tr>
                     <th class="text-right">Stamp</th>
-                    <td>{{props.item.stamp}}</td>
+                    <td>{{ props.item.stamp }}</td>
                   </tr>
                 </tbody>
               </v-simple-table>
@@ -57,7 +61,9 @@
       </td>
       <td class="hidden-xs-only">
         {{ props.item.description }}
-        <v-icon title="Filtering" color="pink" small v-if="!props.item.nofilter">block</v-icon>
+        <v-icon title="Filtering" color="pink" small v-if="!props.item.nofilter"
+          >block</v-icon
+        >
       </td>
       <td class="hidden-sm-and-down" align="center">{{ props.item.proto }}</td>
       <td align="center">
@@ -82,9 +88,9 @@ export default {
           hid: "description",
           name: "description",
           content:
-            "An extensive and constantly updated list of encrypted DNS servers (DoH and DNSCrypt) that are free and publicly accessible."
-        }
-      ]
+            "An extensive and constantly updated list of encrypted DNS servers (DoH and DNSCrypt) that are free and publicly accessible.",
+        },
+      ],
     };
   },
   created() {
@@ -92,11 +98,11 @@ export default {
       .get(
         "https://download.dnscrypt.info/dnscrypt-resolvers/json/public-resolvers.json"
       )
-      .then(response => {
+      .then((response) => {
         this.loading = false;
         this.items = response.data;
       })
-      .catch(e => {
+      .catch((e) => {
         this.loading = false;
         this.errors.push(e);
       });
@@ -112,30 +118,30 @@ export default {
           text: "Description",
           sortable: false,
           value: "description",
-          class: "hidden-xs-only"
+          class: "hidden-xs-only",
         },
         {
           text: "Protocol",
           align: "center",
           sortable: true,
           value: "proto",
-          class: "hidden-sm-and-down"
+          class: "hidden-sm-and-down",
         },
         {
           text: "Logging",
           align: "center",
           sortable: true,
-          value: "nolog"
+          value: "nolog",
         },
         {
           text: "DNSSEC",
           align: "center",
           sortable: true,
           value: "dnssec",
-          class: "hidden-sm-and-down"
-        }
-      ]
+          class: "hidden-sm-and-down",
+        },
+      ],
     };
-  }
+  },
 };
 </script>
