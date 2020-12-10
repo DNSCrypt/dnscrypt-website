@@ -10,6 +10,8 @@
             { text: 'DNS-over-HTTP (DoH)', value: 'DoH' },
             { text: 'Anonymized DNS', value: 'DNSCryptRelay' },
             { text: 'DNS-over-TLS', value: 'DoT' },
+            { text: 'DNS-over-QUIC', value: 'DoQ' },
+            { text: 'Oblivious DoH', value: 'oDoH' },
             { text: 'Plain DNS', value: 'PlainDNS' },
           ]"
           v-model="proto"
@@ -18,6 +20,10 @@
           <v-checkbox label="DNSSEC" v-model="dnssec" />
           <v-checkbox label="No logs" v-model="nolog" />
           <v-checkbox label="No filter" v-model="nofilter" />
+        </span>
+        <span v-if="proto === 'oDoH'">
+          <v-checkbox label="Relay" v-model="relay" />
+          <v-checkbox label="oDoH target" v-model="odohtarget" />
         </span>
       </v-flex>
       <v-flex xs12 sm6>
@@ -34,19 +40,28 @@
             v-model="providerName"
           />
         </span>
-        <span v-if="proto === 'DoH' || proto === 'DoT'">
+        <span
+          v-if="
+            proto === 'DoH' ||
+            proto === 'DoT' ||
+            proto === 'DoQ' ||
+            proto === 'oDoH'
+          "
+        >
           <v-text-field
             label="Host name (vhost+SNI) and optional port number"
             type="text"
             v-model="hostName"
           />
+        </span>
+        <span v-if="proto === 'DoH' || proto === 'DoT' || proto === 'DoQ'">
           <v-text-field
             label="Hashes (comma-separated)"
             type="text"
             v-model="hashes"
           />
         </span>
-        <span v-if="proto === 'DoH'">
+        <span v-if="proto === 'DoH' || proto === 'oDoH'">
           <v-text-field label="Path" type="text" v-model="path" />
         </span>
       </v-flex>
@@ -86,6 +101,8 @@ export default {
       dnssec: true,
       nolog: true,
       nofilter: true,
+      relay: false,
+      odohtarget: false,
       addr: "",
       pk: "",
       providerName: "2.dnscrypt-cert.",
@@ -109,6 +126,10 @@ export default {
         this.proto = "DoH";
       } else if (bin[0] === 0x03) {
         this.proto = "DoT";
+      } else if (bin[0] === 0x04) {
+        this.proto = "DoQ";
+      } else if (bin[0] === 0x05) {
+        this.proto = "oDoH";
       } else if (bin[0] === 0x81) {
         this.proto = "DNSCryptRelay";
       } else {
@@ -116,12 +137,18 @@ export default {
       }
       let props = 0;
       let i = 1;
-      if (this.proto !== "DNSCryptRelay") {
+      if (this.proto === "DNSCryptRelay") {
+        this.relay = true;
+      } else {
         props = bin[1];
         this.dnssec = !!((props >> 0) & 1);
         this.nolog = !!((props >> 1) & 1);
         this.nofilter = !!((props >> 2) & 1);
+        this.relay = !!((props >> 3) & 1);
         i = 9;
+      }
+      if (this.proto === "oDoH") {
+        this.odohtarget = !!((props >> 4) & 1);
       }
       let addrLen = bin[i++];
       this.addr = bin.slice(i, i + addrLen).toString("utf-8");
@@ -170,18 +197,50 @@ export default {
         this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
       };
 
+      const doqStamp = () => {
+        this.hashes = "";
+        for (;;) {
+          let hashLen = bin[i++];
+          this.hashes += bin.slice(i, i + (hashLen & 0x7f)).toString("hex");
+          i += hashLen & 0x7f;
+          if ((hashLen & 0x80) == 0x80) {
+            this.hashes += ",";
+          } else {
+            break;
+          }
+        }
+        let hostNameLen = bin[i++];
+        this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
+      };
+
+      const odohStamp = () => {
+        let hostNameLen = bin[i++];
+        this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
+        i += hostNameLen;
+        let pathLen = bin[i++];
+        this.path = bin.slice(i, i + pathLen).toString("utf-8");
+      };
+
       if (this.proto === "DNSCrypt") {
         dnscryptStamp();
       } else if (this.proto === "DoH") {
         dohStamp();
       } else if (this.proto === "DoT") {
         dotStamp();
+      } else if (this.proto === "DoQ") {
+        doqStamp();
+      } else if (this.proto === "oDoH") {
+        odohStamp();
       }
     },
   },
   computed: {
     stamp: function () {
       let props = (this.dnssec << 0) | (this.nolog << 1) | (this.nofilter << 2);
+      if (this.proto === "oDoH") {
+        props |= (this.relay << 3) | (this.odohtarget << 4);
+      }
+
       let addr = this.addr.split("").map((c) => c.charCodeAt());
 
       const dnscryptStamp = () => {
@@ -248,6 +307,41 @@ export default {
         return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
       };
 
+      const doqStamp = () => {
+        let v = [0x04, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
+        v.push(addr.length, ...addr);
+        let hashes = [];
+        try {
+          hashes = this.hashes
+            .split(/ *, */)
+            .map((h) => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+        } catch (e) {}
+        if (hashes.length === 0) {
+          v.push(0);
+        } else {
+          for (let i = 0, j = hashes.length; i < j; i++) {
+            let length = hashes[i].length;
+            if (i < j - 1) {
+              length |= 0x80;
+            }
+            v.push(length, ...hashes[i]);
+          }
+        }
+        let hostName = this.hostName.split("").map((c) => c.charCodeAt());
+        v.push(hostName.length, ...hostName);
+        return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
+      };
+
+      const odohStamp = () => {
+        let v = [0x05, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
+        v.push(addr.length, ...addr);
+        let hostName = this.hostName.split("").map((c) => c.charCodeAt());
+        v.push(hostName.length, ...hostName);
+        let path = this.path.split("").map((c) => c.charCodeAt());
+        v.push(path.length, ...path);
+        return `sdns://${URLSafeBase64.encode(Buffer(v))}`;
+      };
+
       const dnscryptRelayStamp = () => {
         let v = [0x81];
         v.push(addr.length, ...addr);
@@ -268,6 +362,10 @@ export default {
         return plainDNSStamp();
       } else if (this.proto === "DoT") {
         return dotStamp();
+      } else if (this.proto === "DoQ") {
+        return doqStamp();
+      } else if (this.proto === "oDoH") {
+        return odohStamp();
       } else {
         return dnscryptRelayStamp();
       }
