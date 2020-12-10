@@ -101,6 +101,29 @@ be provided for seamless rotations.
 `bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
 
+## DNS-over-QUIC stamps
+
+Format:
+
+```text
+"sdns://" || base64url(0x04 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
+                       LP(hostname) ||
+                       [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
+```
+
+`addr` is the IP address of the server. It can be an empty string, or just a port number.
+In that case, the host name will be resolved to an IP address using another resolver.
+IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`. Scopes are permitted.
+
+`hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
+typically the certificate used to sign the resolver's certificate.  Multiple hashes can
+be provided for seamless rotations.
+
+`hostname` is the server host name which will also be used as a SNI name.
+
+`bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
+in order to resolve `hostname`. This is optional, and clients can ignore this information.
+
 ## Plain DNS stamps
 
 Format:
