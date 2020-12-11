@@ -44,8 +44,6 @@ Format:
 - `1`: the server supports DNSSEC
 - `2`: the server doesn't keep logs
 - `4`: the server doesn't intentionally block domains
-- `8`: the server can act as a relay (DNSCrypt or oDoH)
-- `16`: the server can act as an oDoH target
 
 For example, a server that supports DNSSEC, stores logs, but doesn't block anything on its own should set `props` as the following 8 bytes sequence: `[ 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 ]`.
 
@@ -126,12 +124,24 @@ be provided for seamless rotations.
 `bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
 
-## Oblivious DoH (oDoH) stamps
+## Oblivious DoH target stamps
 
 Format:
 
 ```text
-"sdns://" || base64url(0x05 || props || LP(addr) || LP(hostname) || LP(path)
+"sdns://" || base64url(0x05 || props || LP(hostname) || LP(path))
+```
+
+`hostname` is the server host name which, for relays, will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
+
+`path` is the absolute URI path, such as `/dns-query`.
+
+## Oblivious DoH relay stamps
+
+Format:
+
+```text
+"sdns://" || base64url(0x85 || props || LP(addr) || LP(hostname) || LP(path)
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
