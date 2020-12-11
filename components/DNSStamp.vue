@@ -54,7 +54,14 @@
             v-model="hostName"
           />
         </span>
-        <span v-if="proto === 'DoH' || proto === 'DoT' || proto === 'DoQ'">
+        <span
+          v-if="
+            proto === 'DoH' ||
+            proto === 'DoT' ||
+            proto === 'DoQ' ||
+            proto === 'oDoHRelay'
+          "
+        >
           <v-text-field
             label="Hashes (comma-separated)"
             type="text"
@@ -221,6 +228,17 @@ export default {
       };
 
       const odohRelayStamp = () => {
+        this.hashes = "";
+        for (;;) {
+          let hashLen = bin[i++];
+          this.hashes += bin.slice(i, i + (hashLen & 0x7f)).toString("hex");
+          i += hashLen & 0x7f;
+          if ((hashLen & 0x80) == 0x80) {
+            this.hashes += ",";
+          } else {
+            break;
+          }
+        }
         let hostNameLen = bin[i++];
         this.hostName = bin.slice(i, i + hostNameLen).toString("utf-8");
         i += hostNameLen;
@@ -356,6 +374,23 @@ export default {
       const odohRelayStamp = () => {
         let v = [0x85, props, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
         v.push(addr.length, ...addr);
+        let hashes = [];
+        try {
+          hashes = this.hashes
+            .split(/ *, */)
+            .map((h) => Buffer.from(h.replace(/[: \t]/g, ""), "hex"));
+        } catch (e) {}
+        if (hashes.length === 0) {
+          v.push(0);
+        } else {
+          for (let i = 0, j = hashes.length; i < j; i++) {
+            let length = hashes[i].length;
+            if (i < j - 1) {
+              length |= 0x80;
+            }
+            v.push(length, ...hashes[i]);
+          }
+        }
         let hostName = this.hostName.split("").map((c) => c.charCodeAt());
         v.push(hostName.length, ...hostName);
         let path = this.path.split("").map((c) => c.charCodeAt());
