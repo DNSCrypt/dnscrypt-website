@@ -148,11 +148,13 @@ export default {
       }
       let props = 0;
       let i = 1;
-      props = bin[1];
-      this.dnssec = !!((props >> 0) & 1);
-      this.nolog = !!((props >> 1) & 1);
-      this.nofilter = !!((props >> 2) & 1);
-      i = 9;
+      if (this.proto != "DNSCryptRelay") {
+        props = bin[1];
+        this.dnssec = !!((props >> 0) & 1);
+        this.nolog = !!((props >> 1) & 1);
+        this.nofilter = !!((props >> 2) & 1);
+        i += 8;
+      }
 
       if (this.proto !== "oDoHTarget") {
         let addrLen = bin[i++];
@@ -227,6 +229,10 @@ export default {
         this.path = bin.slice(i, i + pathLen).toString("utf-8");
       };
 
+      const dnscryptRelayStamp = () => {
+        // DNS relays only include IP addresses
+      };
+
       const odohRelayStamp = () => {
         this.hashes = "";
         for (;;) {
@@ -256,6 +262,8 @@ export default {
         doqStamp();
       } else if (this.proto === "oDoHTarget") {
         odohTargetStamp();
+      } else if (this.proto === "DNSCryptRelay") {
+        dnscryptRelayStamp();
       } else if (this.proto === "oDoHRelay") {
         odohRelayStamp();
       }
