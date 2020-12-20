@@ -21,7 +21,9 @@
           <v-checkbox label="DNSSEC" v-model="dnssec" />
           <v-checkbox label="No filter" v-model="nofilter" />
         </span>
-        <v-checkbox label="No logs" v-model="nolog" />
+        <span v-if="proto !== 'DNSCryptRelay'">
+          <v-checkbox label="No logs" v-model="nolog" />
+        </span>
       </v-flex>
       <v-flex xs12 sm6>
         <span v-if="proto !== 'oDoHTarget'">
