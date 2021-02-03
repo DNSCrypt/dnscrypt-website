@@ -191,7 +191,8 @@ Scopes are permitted.
 - A [Go implementation of DNS stamps](https://github.com/jedisct1/go-dnsstamps)
 - Another [Go implementation of DNS stamps](https://github.com/ameshkov/dnsstamps)
 - A [.NET implementation of DNS stamps](https://github.com/bitbeans/DnsCrypt.Toolbox/tree/master/DnsCrypt.Stamps) by @bitbeans
-- A [Rust implemenetation of DNS stamps](https://github.com/jedisct1/rust-dnsstamps/)
+- A [Rust implementation of DNS stamps](https://github.com/jedisct1/rust-dnsstamps/)
+- [Another Rust implementation](https://github.com/LinkTed/dns-stamp-parser)
 - A [Python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
 - A [Javascript implementation of DNS stamps](https://github.com/rs/node-dnsstamp)
 
