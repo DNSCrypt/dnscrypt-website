@@ -149,7 +149,12 @@ export default {
           name: "DNSCrypt-Proxy",
           Author: "Frank Denis (@jedisct1)",
           url: "https://github.com/DNSCrypt/dnscrypt-proxy",
-          protocols: ["DNSCrypt", "DoH", "Anonymized DNSCrypt"],
+          protocols: [
+            "DNSCrypt",
+            "DoH",
+            "Anonymized DNSCrypt",
+            "Oblivious DoH",
+          ],
           platforms: ["Linux", "BSD", "Windows", "macOS", "Android", "more"],
           language: "Go",
           description:
@@ -222,8 +227,7 @@ export default {
         {
           name: "DNSCloak",
           Author: "Sergey @s-s",
-          url:
-            "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1452162351",
+          url: "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1452162351",
           protocols: ["DNSCrypt"],
           platforms: ["iOS"],
           language: "Apache Cordova",
@@ -342,7 +346,7 @@ export default {
           name: "doh-server",
           author: "Frank Denis (@jedisct1)",
           url: "https://github.com/jedisct1/doh-server",
-          protocols: ["DoH"],
+          protocols: ["DoH", "Oblivious DoH"],
           language: "Rust",
           description: "Fast and secure DoH proxy server in Rust",
         },
