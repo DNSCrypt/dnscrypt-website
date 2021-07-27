@@ -195,6 +195,7 @@ Scopes are permitted.
 - [Another Rust implementation](https://github.com/LinkTed/dns-stamp-parser)
 - A [Python implementation of DNS stamps](https://github.com/chrisss404/python-dnsstamps)
 - A [Javascript implementation of DNS stamps](https://github.com/rs/node-dnsstamp)
+- A [Swift implementation of DNS stamps](https://github.com/x13a/dnsstamp-swift)
 
 ### Applications
 
