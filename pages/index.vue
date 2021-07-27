@@ -1,6 +1,10 @@
 <template lang=md>
+
 <v-container text-xs-center>
-  <img class=fill-width src="../assets/dnscrypt.png" alt=DNSCrypt />
+  <a href="https://sdns2021.dnscrypt.info"><img style="border: 16px solid #000" class=fill-width src="../assets/sdns2021.svg" alt="sdns://2021 party" /></a>
+  <h2>
+    Join us on August 14th, 2021 to <a href="https://sdns2021.dnscrypt.info">celebrate 10 years of DNS privacy improvements!</a>
+  </h2>
 </v-container>
 
 <a href="https://dnscrypt.info/">DNSCrypt</a> is a protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.

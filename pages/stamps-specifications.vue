@@ -220,4 +220,5 @@ DNS stamps are known to be used in the following applications:
 - [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v3/opennic.md)
 - [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v3/parental-control.md)
 - [Anonymized DNS relays list](https://download.dnscrypt.info/resolvers-list/v3/relays.md)
+- [Oblivious DoH servers list](https://download.dnscrypt.info/resolvers-list/v3/odoh.md)
 </template>
