@@ -143,7 +143,7 @@ Format:
 "sdns://" || base64url(0x81 || LP(addr))
 ```
 
-0x81 is the protocol identifier for a DNSCrypt relay.
+`0x81` is the protocol identifier for a DNSCrypt relay.
 
 addr is the IP address and port, as a string. IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]:443`.
 
@@ -157,7 +157,7 @@ Format:
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
-0x85 is the protocol identifier for an oDoH relay.
+`0x85` is the protocol identifier for an oDoH relay.
 
 `addr` is the IP address of the server. Ignored if the server acts as a target. It can be an empty string, or just a port number, represented with a preceding colon (`:443`).
 In that case, the host name will be resolved to an IP address using another resolver.
@@ -218,3 +218,5 @@ DNS stamps are known to be used in the following applications:
 - [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v3/opennic.md)
 - [Parental control resolvers list](https://download.dnscrypt.info/resolvers-list/v3/parental-control.md)
 - [Anonymized DNS relays list](https://download.dnscrypt.info/resolvers-list/v3/relays.md)
+- [Oblivious DoH servers list](https://download.dnscrypt.info/resolvers-list/v3/odoh.md)
+
