@@ -7,7 +7,7 @@
           label="Protocol"
           :items="[
             { text: 'DNSCrypt', value: 'DNSCrypt' },
-            { text: 'DNS-over-HTTP (DoH)', value: 'DoH' },
+            { text: 'DNS-over-HTTPS (DoH)', value: 'DoH' },
             { text: 'Anonymized DNS', value: 'DNSCryptRelay' },
             { text: 'DNS-over-TLS', value: 'DoT' },
             { text: 'DNS-over-QUIC', value: 'DoQ' },
