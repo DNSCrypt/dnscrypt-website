@@ -34,7 +34,7 @@ An example list of [public secure DNS resolvers](https://github.com/DNSCrypt/dns
 Format:
 
 ```text
-"sdns://" || base64url(0x01 || props || LP(addr) || LP(pk) || LP(providerName))
+"sdns://" || base64url(0x01 || props || LP(addr [:port]) || LP(pk) || LP(providerName))
 ```
 
 `0x01` is the protocol identifier for DNSCrypt.
@@ -60,18 +60,19 @@ Format:
 
 ```text
 "sdns://" || base64url(0x02 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
-                       LP(hostname) || LP(path)
+                       LP(hostname [:port]) || LP(path)
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
-`addr` is the IP address of the server. It can be an empty string, or just a port number, represented with a preceding colon (`:443`).
-In that case, the host name will be resolved to an IP address using another resolver.
+`addr` is the IP address of the server.
+It can be an empty string. In that case, the host name will be resolved to an IP address using another resolver.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
 typically the certificate used to sign the resolver's certificate. Multiple hashes can
 be provided for seamless rotations.
 
 `hostname` is the server host name which will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
+The port number is optional, and is assumed to be `443` if missing.
 
 `path` is the absolute URI path, such as `/dns-query`.
 
@@ -84,12 +85,13 @@ Format:
 
 ```text
 "sdns://" || base64url(0x03 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
-                       LP(hostname) ||
+                       LP(hostname [:port]) ||
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
-`addr` is the IP address of the server. It can be an empty string, or just a port number.
-In that case, the host name will be resolved to an IP address using another resolver.
+`addr` is the IP address of the server.
+It can be an empty string. In that case, the host name will be resolved to an IP address using another resolver.
+
 IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`. Scopes are permitted.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
@@ -97,6 +99,7 @@ typically the certificate used to sign the resolver's certificate.  Multiple has
 be provided for seamless rotations.
 
 `hostname` is the server host name which will also be used as a SNI name.
+The port number is optional, and is assumed to be `443` if missing.
 
 `bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
@@ -107,12 +110,13 @@ Format:
 
 ```text
 "sdns://" || base64url(0x04 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
-                       LP(hostname) ||
+                       LP(hostname [:port]) ||
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
-`addr` is the IP address of the server. It can be an empty string, or just a port number.
-In that case, the host name will be resolved to an IP address using another resolver.
+`addr` is the IP address of the server.
+It can be an empty string. In that case, the host name will be resolved to an IP address using another resolver.
+
 IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`. Scopes are permitted.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
@@ -120,6 +124,7 @@ typically the certificate used to sign the resolver's certificate.  Multiple has
 be provided for seamless rotations.
 
 `hostname` is the server host name which will also be used as a SNI name.
+The port number is optional, and is assumed to be `443` if missing.
 
 `bootstrap_ipi` are IP addresses of recommended resolvers accessible over standard DNS
 in order to resolve `hostname`. This is optional, and clients can ignore this information.
@@ -129,10 +134,11 @@ in order to resolve `hostname`. This is optional, and clients can ignore this in
 Format:
 
 ```text
-"sdns://" || base64url(0x05 || props || LP(hostname) || LP(path))
+"sdns://" || base64url(0x05 || props || LP(hostname [:port]) || LP(path))
 ```
 
 `hostname` is the server host name which, for relays, will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
+The port number is optional, and is assumed to be `443` if missing.
 
 `path` is the absolute URI path, such as `/dns-query`.
 
@@ -154,20 +160,21 @@ Format:
 
 ```text
 "sdns://" || base64url(0x85 || props || LP(addr) || VLP(hash1, hash2, ...hashn) ||
-                       LP(hostname) || LP(path)
+                       LP(hostname [:port]) || LP(path)
                        [ || VLP(bootstrap_ip1, bootstrap_ip2, ...bootstrap_ipn) ])
 ```
 
 `0x85` is the protocol identifier for an oDoH relay.
 
-`addr` is the IP address of the server. Ignored if the server acts as a target. It can be an empty string, or just a port number, represented with a preceding colon (`:443`).
-In that case, the host name will be resolved to an IP address using another resolver.
+`addr` is the IP address of the server.
+It can be an empty string. In that case, the host name will be resolved to an IP address using another resolver.
 
 `hashi` is the SHA256 digest of one of the TBS certificate found in the validation chain,
 typically the certificate used to sign the resolver's certificate.  Multiple hashes can
 be provided for seamless rotations.
 
 `hostname` is the server host name which, for relays, will also be used as a SNI name. If the host name contains characters outside the URL-permitted range, these characters should be sent as-is, without any extra encoding (neither URL-encoded nor punycode).
+The port number is optional, and is assumed to be `443` if missing.
 
 `path` is the absolute URI path, such as `/dns-query`.
 
@@ -178,7 +185,7 @@ be provided for seamless rotations.
 Format:
 
 ```text
-"sdns://" || base64url(0x00 || props || LP(addr))
+"sdns://" || base64url(0x00 || props || LP(addr [:port]))
 ```
 
 `addr` is the IP address of the server. IPv6 strings must be included in square brackets: `[fe80::6d6d:f72c:3ad:60b8]`.
