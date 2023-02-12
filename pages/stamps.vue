@@ -10,24 +10,24 @@
     <p>Useful links for DNS operators:</p>
     <ul>
       <li>
-        <a href="https://github.com/jedisct1/encrypted-dns-server"
+        <a href="https://github.com/DNSCrypt/encrypted-dns-server"
           >Recommended DNSCrypt server implementation</a
         >
       </li>
       <li>
-        <a href="https://github.com/jedisct1/doh-server"
+        <a href="https://github.com/DNSCrypt/doh-server"
           >Recommended DoH server implementation</a
         >
       </li>
       <li>
         <a
-          href="https://github.com/jedisct1/doh-server#operational-recommendations"
+          href="https://github.com/DNSCrypt/doh-server#operational-recommendations"
           >Operational recommendations for running DoH servers</a
         >
       </li>
       <li>
         <a
-          href="https://github.com/jedisct1/doh-server#dns-stamp-and-certificate-hashes"
+          href="https://github.com/DNSCrypt/doh-server#dns-stamp-and-certificate-hashes"
           >Certificate hashes for DoH servers</a
         >
       </li>

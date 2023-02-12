@@ -345,7 +345,7 @@ export default {
         {
           name: "doh-server",
           author: "Frank Denis (@jedisct1)",
-          url: "https://github.com/jedisct1/doh-server",
+          url: "https://github.com/DNSCrypt/doh-server",
           protocols: ["DoH", "Oblivious DoH"],
           language: "Rust",
           description: "Fast and secure DoH proxy server in Rust",
