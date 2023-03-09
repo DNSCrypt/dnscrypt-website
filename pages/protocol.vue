@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ProtoText from "raw-loader!~/assets/DNSCRYPT-V2-PROTOCOL.txt";
+import ProtoText from "raw-loader!~/assets/dnscrypt-protocol/DNSCRYPT-V2-PROTOCOL.txt";
 
 export default {
   head() {
