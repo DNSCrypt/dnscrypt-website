@@ -206,6 +206,16 @@ export default {
             "YourFriendlyDNS is a local, multi-platform (Linux, Windows, macOS, Android) caching DNS proxy written in C++",
         },
         {
+          name: "Secure DNS Client",
+          Author: "MSasanMH",
+          url: "https://github.com/msasanmh/SecureDNSClient",
+          protocols: ["DNSCrypt", "DoH"],
+          platforms: ["Windows"],
+          language: "C#",
+          description:
+            "A Windows GUI for DNSLookup, DNSProxy, DNSCrypt and GoodbyeDPI",
+        },
+        {
           name: "Simple DNSCrypt",
           Author: "Christian Hermann",
           url: "https://simplednscrypt.org/",
