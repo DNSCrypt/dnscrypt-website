@@ -144,11 +144,9 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=red>thumb_down</v-icon> No known implementations
 * <v-icon color=red>thumb_down</v-icon> Many security vulnerabilities in OpenSSL due to DTLS
 
-### [DNS over QUIC](https://tools.ietf.org/html/draft-huitema-quic-dnsoquic-05)
+### [DNS over QUIC] ([RFC9250](https://tools.ietf.org/html/rfc9250))
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
-* <v-icon color=red>thumb_down</v-icon> Uses a dedicated port: 784
-* <v-icon color=red>thumb_down</v-icon> RFC is in Draft stage
 
 ## Practical considerations
 
