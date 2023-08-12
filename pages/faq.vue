@@ -42,7 +42,7 @@ Unfortunately, [DNSSEC has received limited adoption](https://labs.ripe.net/Memb
 
 * <v-icon color=green>thumb_up</v-icon> Encrypts and authenticates the DNS traffic
 * <v-icon color=green>thumb_up</v-icon> Specifically designed for DNS
-* <v-icon color=green>thumb_up</v-icon> Has been battle tested
+* <v-icon color=green>thumb_up</v-icon> Has been battle tested since 2011
 * <v-icon color=green>thumb_up</v-icon> A good amount of servers support the protocol
 * <v-icon color=green>thumb_up</v-icon> Includes mitigations against DNS amplification attacks
 * <v-icon color=green>thumb_up</v-icon> Can use UDP and TCP for transport
@@ -59,7 +59,7 @@ Unfortunately, [DNSSEC has received limited adoption](https://labs.ripe.net/Memb
 * <v-icon color=green>thumb_up</v-icon> DNSCrypt and DoH can also be served simultaneously on the same port
 * <v-icon color=green>thumb_up</v-icon> Can hide client IP addresses from servers (Anonymized DNSCrypt)
 * <v-icon color=green>thumb_up</v-icon> A prototype using post-quantum cryptography is available
-* <v-icon color=red>thumb_down</v-icon> The specification hasn't been submitted to the IETF yet
+* <v-icon color=red>thumb_down</v-icon> The <a href="https://datatracker.ietf.org/doc/draft-denis-dprive-dnscrypt/">RFC</a> is still a work in progress
 
 <v-container text-xs-center>
   <img class=fill-width alt="DNSCrypt with DNSSEC" src="../assets/DNSCrypt-DNSSEC.png"/>
@@ -147,6 +147,8 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 ### [DNS over QUIC] ([RFC9250](https://tools.ietf.org/html/rfc9250))
 
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
+* <v-icon color=red>thumb_down</v-icon> Uses a dedicated port: 853, can't use port 53
+* <v-icon color=red>thumb_down</v-icon> Client devices and IP addresses can be linked
 
 ## Practical considerations
 
