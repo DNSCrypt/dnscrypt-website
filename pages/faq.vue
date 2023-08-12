@@ -117,8 +117,8 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=green>thumb_up</v-icon> New implementations are being developed
 * <v-icon color=green>thumb_up</v-icon> The minimum version of HTTP used by DoH should be HTTP/2
-* <v-icon color=green>thumb_up</v-icon> Uses standard HTTP/2, on the standard port (443)
-* <v-icon color=green>thumb_up</v-icon> Will automatically benefit from improvements made to HTTP/2 and, eventually, QUIC
+* <v-icon color=green>thumb_up</v-icon> Uses standard HTTP/2 or HTTP/3, on the standard port (443)
+* <v-icon color=green>thumb_up</v-icon> Will automatically benefit from improvements made to HTTP
 * <v-icon color=green>thumb_up</v-icon> Less likely to be blocked than other options
 * <v-icon color=green>thumb_up</v-icon> Can be trivially deployed on any web server, and run along existing websites; DNS response are served like simple web pages
 * <v-icon color=green>thumb_up</v-icon> Can share the same infrastructure as existing websites, and share the same certificates
@@ -127,17 +127,18 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Allows web browsers to perform DNS queries using Javascript
 * <v-icon color=green>thumb_up</v-icon> Supports reordering, parallelism and priorities, thanks to HTTP/2
 * <v-icon color=green>thumb_up</v-icon> Can leverage existing padding mechanisms (HTTP/2 frames padding)
-* <v-icon color=green>thumb_up</v-icon> Already implemented by Google DNS (albeit not the latest draft)
+* <v-icon color=green>thumb_up</v-icon> Implemented by Google DNS
 * <v-icon color=green>thumb_up</v-icon> Supported by CuRL: will soon be available in all programming languages with bindings for libcurl
 * <v-icon color=green>thumb_up</v-icon> Available in [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1434852)
-* <v-icon color=green>thumb_up</v-icon> Work is being made to leverage DoH and CDNs to improve performance of web applications [DoH digests](https://tools.ietf.org/html/draft-nottingham-doh-digests-00)
 * <v-icon color=green>thumb_up</v-icon> Specified as a RFC
+* <v-icon color=green>thumb_up</v-icon> Can be accessed via relays (ODoH, DooH), even though this leaks more information that expected
 * <v-icon color=red>thumb_down</v-icon> Provides more information than regular DNS to resolver operators in order to fingerprint clients, but this is being addressed in the specification
 * <v-icon color=red>thumb_down</v-icon> Requires a full TLS stack and a web server
 * <v-icon color=red>thumb_down</v-icon> Interception/monitoring tools are readily available
 * <v-icon color=red>thumb_down</v-icon> Key management can be surprisingly hard especially if public key pinning is used by clients
 * <v-icon color=red>thumb_down</v-icon> Allows insecure algorithms and parameters
 * <v-icon color=red>thumb_down</v-icon> Requires TCP
+* <v-icon color=red>thumb_down</v-icon> Rarely deployed in a way that would prevent it to be trivially blocked without ECH
 
 ### DNS-over-DTLS ([RFC8094](https://tools.ietf.org/html/rfc8094))
 
