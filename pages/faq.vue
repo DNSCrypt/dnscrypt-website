@@ -149,6 +149,7 @@ See <router-link to="/implementations#server-implementations">Server Implementat
 * <v-icon color=green>thumb_up</v-icon> Full encryption of the DNS protocol
 * <v-icon color=red>thumb_down</v-icon> Uses a dedicated port: 853, can't use port 53
 * <v-icon color=red>thumb_down</v-icon> Client devices and IP addresses can be linked
+* <v-icon color=red>thumb_down</v-icon> No clear advantage over HTTP/3
 
 ## Practical considerations
 
