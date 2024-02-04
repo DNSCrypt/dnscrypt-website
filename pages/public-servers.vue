@@ -87,6 +87,11 @@
         >This server list is maintained on GitHub</a
       >
     </p>
+    <p class="text-center headline">
+      Software to run
+      <a href="https://github.com/dnscrypt/encrypted-dns-server">your own DNSCrypt server</a> and <a
+        href="https://github.com/dnscrypt/doh-server">your own DoH server</a> (and ODoH).
+    </p>
   </v-container>
 </template>
 

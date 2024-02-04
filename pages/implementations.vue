@@ -218,7 +218,7 @@ export default {
         {
           name: "Simple DNSCrypt",
           Author: "Christian Hermann",
-          url: "https://simplednscrypt.org/",
+          url: "https://github.com/instantsc/SimpleDnsCrypt",
           protocols: ["DNSCrypt", "DoH"],
           platforms: ["Windows"],
           language: "C#",
