@@ -235,16 +235,6 @@ export default {
           description: "dnscrypt-proxy switcher is a plugin for BitBar.",
         },
         {
-          name: "DNSCloak",
-          Author: "Sergey @s-s",
-          url: "https://itunes.apple.com/us/app/dnscloak-dnscrypt-client/id1452162351",
-          protocols: ["DNSCrypt"],
-          platforms: ["iOS"],
-          language: "Apache Cordova",
-          description:
-            "DNSCloak is a full-featured DNSCrypt client for iOS, with filtering, logging, caching, password protection and more. No jailbreak required.",
-        },
-        {
           name: "DNSCrypt proxy on Android",
           Author: "Multiple",
           url: "https://github.com/DNSCrypt/dnscrypt-proxy/issues/41",

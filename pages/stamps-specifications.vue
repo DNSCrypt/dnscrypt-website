@@ -212,7 +212,6 @@ DNS stamps are known to be used in the following applications:
 - [dnscrypt-wrapper](https://github.com/cofyc/dnscrypt-wrapper)
 - [encrypted-dns-server](https://github.com/jedisct1/encrypted-dns-server)
 - [simple dnscrypt](https://github.com/instantsc/SimpleDnsCrypt)
-- [dnscloak](https://itunes.apple.com/us/app/dnscloak-dnscrypt-doh-client/id1330471557)
 - [yourfriendlydns](https://github.com/softwareengineer1/YourFriendlyDNS)
 - [adguard](https://adguard.com)
 - [nextdns](https://www.nextdns.io)
