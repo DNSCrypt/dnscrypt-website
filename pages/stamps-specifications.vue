@@ -229,3 +229,51 @@ DNS stamps are known to be used in the following applications:
 - [Oblivious DoH target servers list](https://download.dnscrypt.info/resolvers-list/v3/odoh-servers.md)
 - [Oblivious DoH proxies list](https://download.dnscrypt.info/resolvers-list/v3/odoh-relays.md)
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: "DNS Stamps Specification - DNSCrypt, DoH, DoT Format",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Complete specification for DNS stamps encoding format supporting DNSCrypt, DNS-over-HTTPS (DoH), DNS-over-TLS (DoT), and DNS-over-QUIC protocols.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "DNS Stamps Specification - DNSCrypt, DoH, DoT Format | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Complete specification for DNS stamps encoding format supporting DNSCrypt, DNS-over-HTTPS (DoH), DNS-over-TLS (DoT), and DNS-over-QUIC protocols.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/stamps-specifications",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "DNS Stamps Specification - DNSCrypt, DoH, DoT Format | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Complete specification for DNS stamps encoding format supporting DNSCrypt, DoH, DoT, and DoQ protocols.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/stamps-specifications",
+        },
+      ],
+    };
+  },
+};
+</script>

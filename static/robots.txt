@@ -1,3 +1,14 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+Disallow: /_nuxt/
+
+# Crawl-delay for various bots
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Sitemap
 Sitemap: https://dnscrypt.info/sitemap.xml

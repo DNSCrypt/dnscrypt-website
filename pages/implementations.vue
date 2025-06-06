@@ -123,13 +123,44 @@
 export default {
   head() {
     return {
-      title: "DNSCrypt - Download clients and servers for DoH and DNSCrypt",
+      title: "Download DNSCrypt & DoH Clients and Servers",
       meta: [
         {
           hid: "description",
           name: "description",
           content:
-            "Applications to run and connect to encrypted DNS servers (DoH and DNSCrypt).",
+            "Download free DNSCrypt and DNS-over-HTTPS (DoH) client and server software for Windows, macOS, Linux, Android, and iOS. Secure your DNS traffic with encryption.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Download DNSCrypt & DoH Clients and Servers | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Download free DNSCrypt and DNS-over-HTTPS (DoH) client and server software for Windows, macOS, Linux, Android, and iOS. Secure your DNS traffic with encryption.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/implementations",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Download DNSCrypt & DoH Clients and Servers | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Download free DNSCrypt and DNS-over-HTTPS (DoH) client and server software for Windows, macOS, Linux, Android, and iOS.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/implementations",
         },
       ],
     };

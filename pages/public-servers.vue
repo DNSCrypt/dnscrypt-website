@@ -101,13 +101,44 @@ import axios from "axios";
 export default {
   head() {
     return {
-      title: "DNSCrypt - List of public DoH and DNSCrypt servers",
+      title: "Free Public DNSCrypt & DoH Servers List",
       meta: [
         {
           hid: "description",
           name: "description",
           content:
-            "An extensive and constantly updated list of encrypted DNS servers (DoH and DNSCrypt) that are free and publicly accessible.",
+            "Comprehensive list of free public DNSCrypt and DNS-over-HTTPS (DoH) servers with DNSSEC support, no-logging policies, and global locations. Updated regularly.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Free Public DNSCrypt & DoH Servers List | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Comprehensive list of free public DNSCrypt and DNS-over-HTTPS (DoH) servers with DNSSEC support, no-logging policies, and global locations.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/public-servers",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Free Public DNSCrypt & DoH Servers List | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Comprehensive list of free public DNSCrypt and DNS-over-HTTPS (DoH) servers with DNSSEC support and no-logging policies.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/public-servers",
         },
       ],
     };

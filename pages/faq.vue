@@ -162,12 +162,43 @@ All the solutions above offer the same practical security level. Compatibility w
 export default {
   head() {
     return {
-      title: "DNSCrypt - FAQ - DNSCrypt vs DoH",
+      title: "DNSCrypt FAQ - DNSCrypt vs DoH vs DoT Comparison",
       meta: [
         {
           hid: "description",
           name: "description",
-          content: "DNSCrypt vs DoH - A comparison of options for secure DNS.",
+          content: "Frequently asked questions about DNSCrypt, DNS-over-HTTPS (DoH), and DNS-over-TLS (DoT). Compare secure DNS protocols and understand DNS encryption benefits.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "DNSCrypt FAQ - DNSCrypt vs DoH vs DoT Comparison | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Frequently asked questions about DNSCrypt, DNS-over-HTTPS (DoH), and DNS-over-TLS (DoT). Compare secure DNS protocols and understand DNS encryption benefits.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/faq",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "DNSCrypt FAQ - DNSCrypt vs DoH vs DoT Comparison | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Frequently asked questions about DNSCrypt, DNS-over-HTTPS (DoH), and DNS-over-TLS (DoT). Compare secure DNS protocols.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/faq",
         },
       ],
     };

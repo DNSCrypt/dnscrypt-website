@@ -44,6 +44,49 @@
 import DNSStamp from "~/components/DNSStamp.vue";
 
 export default {
+  head() {
+    return {
+      title: "DNS Stamp Calculator - Generate DNSCrypt and DoH Stamps",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Generate and decode DNS stamps for DNSCrypt and DNS-over-HTTPS (DoH) servers. DNS stamps encode server parameters as a single string for easy configuration.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "DNS Stamp Calculator - Generate DNSCrypt and DoH Stamps | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Generate and decode DNS stamps for DNSCrypt and DNS-over-HTTPS (DoH) servers. DNS stamps encode server parameters as a single string for easy configuration.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/stamps",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "DNS Stamp Calculator - Generate DNSCrypt and DoH Stamps | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Generate and decode DNS stamps for DNSCrypt and DNS-over-HTTPS (DoH) servers. Easy configuration tool.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/stamps",
+        },
+      ],
+    };
+  },
   components: {
     DNSStamp,
   },

@@ -39,13 +39,44 @@ import axios from "axios";
 export default {
   head() {
     return {
-      title: "DNSCrypt - Secure DNS servers map",
+      title: "Global Map of DNSCrypt & DoH Servers",
       meta: [
         {
           hid: "description",
           name: "description",
           content:
-            "A map of free, public DNS servers accessible over DNSCrypt and DoH.",
+            "Interactive world map showing locations of free public DNSCrypt and DNS-over-HTTPS (DoH) servers. Find secure DNS servers near your location.",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "Global Map of DNSCrypt & DoH Servers | DNSCrypt",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "Interactive world map showing locations of free public DNSCrypt and DNS-over-HTTPS (DoH) servers. Find secure DNS servers near your location.",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://dnscrypt.info/map",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: "Global Map of DNSCrypt & DoH Servers | DNSCrypt",
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: "Interactive world map showing locations of free public DNSCrypt and DNS-over-HTTPS (DoH) servers.",
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: "https://dnscrypt.info/map",
         },
       ],
     };

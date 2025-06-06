@@ -33,3 +33,36 @@ Anonymized DNS improves over the original protocol and DoH by hiding client IP a
 
 Feel free to join the [subreddit dedicated to discussing DNSCrypt](https://www.reddit.com/r/dnscrypt/)!
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      script: [
+        {
+          type: 'application/ld+json',
+          json: {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'DNSCrypt',
+            description: 'A protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing.',
+            url: 'https://dnscrypt.info',
+            applicationCategory: 'SecurityApplication',
+            operatingSystem: ['Windows', 'macOS', 'Linux', 'Android', 'iOS'],
+            offers: {
+              '@type': 'Offer',
+              price: '0',
+              priceCurrency: 'USD'
+            },
+            author: {
+              '@type': 'Organization',
+              name: 'DNSCrypt Project',
+              url: 'https://dnscrypt.info'
+            }
+          }
+        }
+      ]
+    };
+  }
+};
+</script>
