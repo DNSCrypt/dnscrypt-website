@@ -29,6 +29,9 @@
         <v-list-tile nuxt to="/stamps">
           <v-list-tile-title>DNS Stamps</v-list-tile-title>
         </v-list-tile>
+        <v-list-tile href="https://status.dnscrypt.info/">
+          <v-list-tile-title>Network Status</v-list-tile-title>
+        </v-list-tile>
       </v-list>
       <v-toolbar-side-icon
         slot="activator"
@@ -42,6 +45,7 @@
       <v-btn flat nuxt to="/faq">FAQ</v-btn>
       <v-btn flat nuxt to="/protocol">Protocol</v-btn>
       <v-btn flat nuxt to="/stamps">DNS Stamps</v-btn>
+      <v-btn flat href="https://status.dnscrypt.info/">Network Status</v-btn>
     </v-toolbar-items>
     <v-btn
       flat
