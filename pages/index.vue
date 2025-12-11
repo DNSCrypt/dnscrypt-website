@@ -289,7 +289,8 @@ export default {
   p
     color: #718096
     font-size: 1.15rem
-    margin: 0
+    margin: 0 auto
+    max-width: 600px
 
 .feature-card
   border-radius: 20px !important
