@@ -5,7 +5,7 @@
 
 <a href="https://dnscrypt.info/">DNSCrypt</a> is a protocol that encrypts, authenticates and optionally anonymizes communications between a DNS client and a DNS resolver. It prevents DNS spoofing. It uses cryptographic signatures to verify that responses originate from the chosen DNS resolver and haven't been tampered with.
 
-It is an open specification, with free and open source reference implementations, and it is not affiliated with any company nor organization.
+It is an open specification, with free and open source reference implementations, and it is not affiliated with any company or organization.
 
 Free, DNSCrypt-enabled resolvers are available all over the world.
 
@@ -13,15 +13,35 @@ Free, DNSCrypt-enabled resolvers are available all over the world.
 <v-btn class=primary large nuxt to="/implementations">Let's secure your DNS!</v-btn>
 </v-container>
 
-## Why was DNSCrypt developed?
+## Why DNSCrypt?
 
-Most applications on your computer, mobile devices and connected gadgets heavily use DNS, a mandatory protocol to communicate over the Internet.
+### Secure from the first packet
 
-Unfortunately, the security of that important protocol could be vastly improved. Encryption is nonexistent, and authentication mechanisms exist, but are criticized and haven’t received much adoption.
+Unlike DNS-over-TLS and DNS-over-HTTPS, which require resolving a hostname through plaintext DNS first, DNSCrypt clients are configured with an IP address and a public key. This enables encryption from the very first query, with no insecure bootstrap procedure.
 
-Pioneered by the [OpenBSD](https://openbsd.org/) operating system [circa 2008](http://cvsweb.openbsd.org/cgi-bin/cvsweb/src/share/man/man5/resolv.conf.5?rev=1.30&content-type=text/x-cvsweb-markup), systems to tunnel DNS over a secure channel greatly improve DNS security.
+### No dependency on Certificate Authorities
 
-The [DNSCrypt protocol](protocol) was then specifically designed for that purpose. DNSCrypt version 2 was specified and implemented in 2013, and is probably the most deployed encrypted DNS protocol to date.
+DNSCrypt eliminates dependency on certificate authorities entirely. Instead of relying on the global TLS PKI system, each resolver maintains a static public key verified through cryptographic signatures. This makes the protocol resistant to CA compromises and state-level coercion.
+
+### Designed for decentralization
+
+DNSCrypt was explicitly designed to be distributed. Anyone can run a resolver without requiring approval from corporate gatekeepers. This contrasts with DoH's concentration among major CDN providers.
+
+### Censorship resistant
+
+DNSCrypt traffic has no SNI, no HTTP signature, and no fixed port. Combined with [Anonymized DNS relays](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS), it offers strong protection against traffic analysis and blocking.
+
+### High performance
+
+DNSCrypt offers zero-RTT operation with no handshake delay, native parallelism with multiple queries in flight, and consistently lower latency than DoH—even when DoH uses HTTP/3.
+
+### Extensible protocol
+
+The protocol supports built-in query padding, multiple crypto suites (including X25519 and Ed25519), anonymized relays, and can evolve without requiring cross-layer redesigns.
+
+## History
+
+The [DNSCrypt protocol](https://datatracker.ietf.org/doc/draft-denis-dprive-dnscrypt/) was specifically designed for secure DNS communications. DNSCrypt version 2 was specified and implemented in 2013.
 
 ## Anonymized DNS
 
