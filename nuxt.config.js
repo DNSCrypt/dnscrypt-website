@@ -121,7 +121,7 @@ module.exports = {
     },
     {
       name: "theme-color",
-      content: "#3B8070"
+      content: "#1a237e"
     },
     {
       name: "keywords",
@@ -129,7 +129,7 @@ module.exports = {
     },
     {
       name: "msapplication-TileColor",
-      content: "#3B8070"
+      content: "#1a237e"
     }
     ],
     link: [
@@ -143,7 +143,7 @@ module.exports = {
    ** Customize the progress bar color
    */
   loading: {
-    color: "#3B8070"
+    color: "#00bfa5"
   },
   /*
    ** Build configuration

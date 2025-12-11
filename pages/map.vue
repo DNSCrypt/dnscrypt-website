@@ -1,36 +1,44 @@
 <template>
-  <v-container v-if="showMap">
-    <yandex-map
-      mapLink="https://api-maps.yandex.ru/2.1/?lang=en_US"
-      :coords="[35, 10]"
-      :controls="['zoomControl']"
-      zoom="2"
-      style="width: 100%; height: 600px"
-      map-type="map"
-    >
-      <ymap-marker
-        v-for="marker in markers"
-        v-bind:key="marker.id"
-        marker-id="marker.id"
-        marker-type="circle"
-        circle-radius="180000"
-        :marker-fill="{ color: '#ccccff', opacity: 0.5 }"
-        :marker-stroke="{ color: '#224488', width: 2 }"
-        v-bind:coords="marker.location"
-        :hint-content="marker.name"
-        :balloon="{
-          header: marker.name,
-          body: marker.description,
-          footer: marker.proto,
-        }"
-        :icon="{ color: 'blue', glyph: 'cinema' }"
-      ></ymap-marker>
-    </yandex-map>
-    <v-container text-xs-center
-      >Public DNSCrypt servers. Anycast resolvers have a single
-      marker.</v-container
-    >
-  </v-container>
+  <div class="map-page">
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Server Map</h1>
+      <p>Interactive map of public DNSCrypt and DoH servers worldwide.</p>
+    </div>
+
+    <v-card class="map-card" v-if="showMap">
+      <yandex-map
+        mapLink="https://api-maps.yandex.ru/2.1/?lang=en_US"
+        :coords="[35, 10]"
+        :controls="['zoomControl']"
+        zoom="2"
+        style="width: 100%; height: 600px"
+        map-type="map"
+      >
+        <ymap-marker
+          v-for="marker in markers"
+          v-bind:key="marker.id"
+          marker-id="marker.id"
+          marker-type="circle"
+          circle-radius="180000"
+          :marker-fill="{ color: '#00bfa5', opacity: 0.4 }"
+          :marker-stroke="{ color: '#1a237e', width: 2 }"
+          v-bind:coords="marker.location"
+          :hint-content="marker.name"
+          :balloon="{
+            header: marker.name,
+            body: marker.description,
+            footer: marker.proto,
+          }"
+          :icon="{ color: 'blue', glyph: 'cinema' }"
+        ></ymap-marker>
+      </yandex-map>
+    </v-card>
+
+    <p class="map-note">
+      Public DNSCrypt servers. Anycast resolvers have a single marker.
+    </p>
+  </div>
 </template>
 
 <script>
@@ -112,3 +120,35 @@ export default {
   },
 };
 </script>
+
+<style lang="stylus" scoped>
+.map-page
+  padding-bottom: 3rem
+
+.page-header
+  text-align: center
+  margin-bottom: 3rem
+
+  h1
+    font-size: 2.5rem
+    font-weight: 700
+    color: #1a202c
+    margin: 0 0 1rem 0
+
+  p
+    color: #718096
+    font-size: 1.15rem
+    margin: 0
+
+.map-card
+  border-radius: 16px !important
+  overflow: hidden
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important
+  border: none !important
+
+.map-note
+  text-align: center
+  color: #718096
+  margin-top: 1.5rem
+  font-size: 0.95rem
+</style>

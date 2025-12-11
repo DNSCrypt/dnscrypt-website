@@ -3,9 +3,9 @@
   <header>
     <TopMenu />
   </header>
-  <v-content class=mt-5>
-    <v-container class=mt-3>
-    <nuxt/>
+  <v-content class="main-content">
+    <v-container class="content-container">
+      <nuxt/>
     </v-container>
   </v-content>
 </v-app>
@@ -20,3 +20,15 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus" scoped>
+.main-content
+  padding-top: 70px !important
+  min-height: 100vh
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)
+
+.content-container
+  padding-top: 24px
+  padding-bottom: 48px
+  max-width: 1200px
+</style>

@@ -1,22 +1,344 @@
 
 @require './fonts.css'
 
+// Modern color palette
+$color-primary = #1a237e
+$color-secondary = #0d47a1
+$color-accent = #00bfa5
+$color-text = #2d3748
+$color-text-light = #718096
+$color-bg-light = #f7fafc
+$color-bg-dark = #1a202c
+$color-gradient-start = #1a237e
+$color-gradient-end = #0d47a1
+
+// Typography improvements
+$font-size-root := 16px
+
+html
+  scroll-behavior: smooth
+
+body
+  color: $color-text
+  line-height: 1.7
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+// Remove default list styling
 li
   list-style: none
 
-h2, h3, h4
-  margin-top: 2em
+// Modern heading styles
+h1, h2, h3, h4, h5, h6
+  color: $color-bg-dark
+  font-weight: 600
+  line-height: 1.3
 
+h1
+  font-size: 2.5rem
+  margin-top: 1.5em
+  margin-bottom: 0.75em
+
+h2
+  font-size: 2rem
+  margin-top: 2em
+  margin-bottom: 0.5em
+
+h3
+  font-size: 1.5rem
+  margin-top: 1.75em
+  margin-bottom: 0.5em
+
+h4
+  font-size: 1.25rem
+  margin-top: 1.5em
+  margin-bottom: 0.5em
+
+// Paragraphs
+p
+  margin-bottom: 1.25em
+  color: $color-text
+
+// Links
+a
+  color: $color-secondary
+  text-decoration: none
+  transition: color 0.2s ease
+
+  &:hover
+    color: $color-accent
+
+// Utility classes
 .fill-width
   max-width: 100%
 
+// Modern gradient text
+.gradient-text
+  background: linear-gradient(135deg, $color-gradient-start, $color-accent)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+
+// Section styling
+.section-title
+  text-align: center
+  margin-bottom: 3rem
+
+  h2
+    font-size: 2.25rem
+    font-weight: 700
+    margin-bottom: 1rem
+
+  p
+    color: $color-text-light
+    font-size: 1.125rem
+    max-width: 600px
+    margin: 0 auto
+
+// Hero section
+.hero-section
+  background: linear-gradient(135deg, $color-gradient-start 0%, $color-secondary 100%)
+  padding: 4rem 2rem
+  margin: -20px -16px 3rem -16px
+  border-radius: 0 0 2rem 2rem
+  text-align: center
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+    opacity: 0.5
+
+  .hero-content
+    position: relative
+    z-index: 1
+
+  h1
+    color: white
+    font-size: 3rem
+    font-weight: 700
+    margin: 0 0 1.5rem 0
+
+    @media (max-width: 600px)
+      font-size: 2rem
+
+  .hero-subtitle
+    color: rgba(255, 255, 255, 0.9)
+    font-size: 1.25rem
+    max-width: 700px
+    margin: 0 auto 2rem auto
+    line-height: 1.8
+
+    @media (max-width: 600px)
+      font-size: 1rem
+
+  .hero-logo
+    max-width: 400px
+    margin-bottom: 2rem
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3))
+
+    @media (max-width: 600px)
+      max-width: 250px
+
+// Modern card styling
+.v-card
+  border-radius: 16px !important
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important
+  border: 1px solid rgba(0, 0, 0, 0.05) !important
+  overflow: hidden
+
+  &:hover
+    transform: translateY(-4px)
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important
+
+.v-card__title
+  padding: 1.5rem !important
+
+.feature-card
+  height: 100%
+
+  .feature-icon
+    width: 60px
+    height: 60px
+    border-radius: 12px
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 1rem
+    background: linear-gradient(135deg, $color-accent, lighten($color-accent, 20%))
+
+    .v-icon
+      color: white !important
+      font-size: 28px !important
+
+  .feature-title
+    font-size: 1.25rem
+    font-weight: 600
+    color: $color-bg-dark
+    margin-bottom: 0.75rem
+
+  .feature-description
+    color: $color-text-light
+    font-size: 0.95rem
+    line-height: 1.7
+
+// Navigation styles
 .btn.nav-img-btn
   height: 48px
-  transition: height 80ms 270ms
+  transition: height 80ms 270ms, transform 0.2s ease
+
+  &:hover
+    transform: scale(1.05)
 
 @media (min-width: 960px)
   .btn.nav-img-btn
     height: 64px
 
-$font-size-root := 16px
+// Modern navbar
+.modern-toolbar
+  background: linear-gradient(135deg, $color-gradient-start 0%, $color-secondary 100%) !important
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important
+
+  .v-btn
+    font-weight: 500
+    letter-spacing: 0.5px
+    text-transform: none !important
+    font-size: 0.95rem
+
+    &:hover
+      background: rgba(255, 255, 255, 0.1) !important
+
+// Buttons
+.v-btn.primary
+  background: linear-gradient(135deg, $color-accent, lighten($color-accent, 10%)) !important
+  border-radius: 12px !important
+  font-weight: 600 !important
+  letter-spacing: 0.5px
+  text-transform: none !important
+  box-shadow: 0 4px 15px rgba($color-accent, 0.4) !important
+  transition: all 0.3s ease !important
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 6px 20px rgba($color-accent, 0.5) !important
+
+.v-btn--large
+  height: 56px !important
+  padding: 0 32px !important
+  font-size: 1.1rem !important
+
+// Data tables
+.v-datatable
+  border-radius: 12px !important
+  overflow: hidden
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important
+
+  thead
+    background: $color-bg-light
+
+    th
+      font-weight: 600 !important
+      color: $color-bg-dark !important
+      font-size: 0.875rem !important
+
+  tbody
+    tr
+      transition: background 0.2s ease
+
+      &:hover
+        background: rgba($color-accent, 0.05) !important
+
+    td
+      font-size: 0.95rem
+      padding: 16px !important
+
+// Search input
+.v-text-field
+  .v-input__slot
+    border-radius: 12px !important
+
+  &.v-text-field--solo
+    .v-input__slot
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important
+      border: 1px solid rgba(0, 0, 0, 0.08)
+
+// Page content wrapper
+.page-content
+  padding-top: 1rem
+  padding-bottom: 4rem
+
+// Footer spacing
+.content-footer
+  margin-top: 4rem
+  padding-top: 2rem
+  border-top: 1px solid rgba(0, 0, 0, 0.08)
+  text-align: center
+  color: $color-text-light
+
+// Protocol/code blocks
+pre
+  background: $color-bg-dark !important
+  color: #e2e8f0
+  padding: 1.5rem
+  border-radius: 12px
+  overflow-x: auto
+  font-size: 0.875rem
+  line-height: 1.7
+  margin: 1.5rem 0
+
+code
+  background: rgba($color-accent, 0.1)
+  color: $color-secondary
+  padding: 0.2em 0.4em
+  border-radius: 4px
+  font-size: 0.875em
+
+// Chips and badges
+.v-chip
+  border-radius: 8px !important
+  font-weight: 500
+
+// Dialogs
+.v-dialog
+  border-radius: 16px !important
+
+  .v-card
+    border-radius: 16px !important
+
+// Selection
+::selection
+  background: rgba($color-accent, 0.3)
+  color: $color-bg-dark
+
+// Smooth transitions for page changes
+.page-enter-active, .page-leave-active
+  transition: opacity 0.3s ease
+
+.page-enter, .page-leave-to
+  opacity: 0
+
+// Responsive adjustments
+@media (max-width: 600px)
+  .hero-section
+    padding: 2.5rem 1rem
+    margin: -20px -12px 2rem -12px
+    border-radius: 0 0 1.5rem 1.5rem
+
+  .v-card__title
+    padding: 1rem !important
+
+  .feature-card .feature-icon
+    width: 50px
+    height: 50px
+
+    .v-icon
+      font-size: 24px !important
+
 @require '~vuetify/src/stylus/main.styl'
