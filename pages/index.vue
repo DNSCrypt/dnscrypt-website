@@ -13,31 +13,71 @@ Free, DNSCrypt-enabled resolvers are available all over the world.
 <v-btn class=primary large nuxt to="/implementations">Let's secure your DNS!</v-btn>
 </v-container>
 
-## Why DNSCrypt?
-
-### Secure from the first packet
-
-Unlike DNS-over-TLS and DNS-over-HTTPS, which require resolving a hostname through plaintext DNS first, DNSCrypt clients are configured with an IP address and a public key. This enables encryption from the very first query, with no insecure bootstrap procedure.
-
-### No dependency on Certificate Authorities
-
-DNSCrypt eliminates dependency on certificate authorities entirely. Instead of relying on the global TLS PKI system, each resolver maintains a static public key verified through cryptographic signatures. This makes the protocol resistant to CA compromises and state-level coercion.
-
-### Designed for decentralization
-
-DNSCrypt was explicitly designed to be distributed. Anyone can run a resolver without requiring approval from corporate gatekeepers. This contrasts with DoH's concentration among major CDN providers.
-
-### Censorship resistant
-
-DNSCrypt traffic has no SNI, no HTTP signature, and no fixed port. Combined with [Anonymized DNS relays](https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Anonymized-DNS), it offers strong protection against traffic analysis and blocking.
-
-### High performance
-
-DNSCrypt offers zero-RTT operation with no handshake delay, native parallelism with multiple queries in flight, and consistently lower latency than DoH—even when DoH uses HTTP/3.
-
-### Extensible protocol
-
-The protocol supports built-in query padding, multiple crypto suites (including X25519 and Ed25519), anonymized relays, and can evolve without requiring cross-layer redesigns.
+<v-container class="mt-5">
+<h2 class="text-xs-center mb-4">Why DNSCrypt?</h2>
+<v-layout row wrap>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">lock</v-icon>Secure from the first packet</div>
+          <div class="mt-2">Unlike DNS-over-TLS and DNS-over-HTTPS, which require resolving a hostname through plaintext DNS first, DNSCrypt clients are configured with an IP address and a public key. Encryption starts from the very first query.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">verified_user</v-icon>No Certificate Authorities</div>
+          <div class="mt-2">DNSCrypt eliminates dependency on certificate authorities entirely. Each resolver maintains a static public key verified through cryptographic signatures, making it resistant to CA compromises and state-level coercion.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">device_hub</v-icon>Decentralized by design</div>
+          <div class="mt-2">Anyone can run a resolver without requiring approval from corporate gatekeepers. This contrasts with DoH's concentration among major CDN providers like Cloudflare and Google.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">visibility_off</v-icon>Censorship resistant</div>
+          <div class="mt-2">DNSCrypt traffic has no SNI, no HTTP signature, and no fixed port. Combined with Anonymized DNS relays, it offers strong protection against traffic analysis and blocking.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">flash_on</v-icon>High performance</div>
+          <div class="mt-2">Zero-RTT operation with no handshake delay, native parallelism with multiple queries in flight, and consistently lower latency than DoH—even when DoH uses HTTP/3.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+  <v-flex xs12 md6 pa-2>
+    <v-card height="100%">
+      <v-card-title primary-title>
+        <div>
+          <div class="headline"><v-icon color="green" class="mr-2">extension</v-icon>Extensible protocol</div>
+          <div class="mt-2">Built-in query padding, multiple crypto suites (X25519, Ed25519), anonymized relays, and room to evolve without requiring cross-layer redesigns.</div>
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-flex>
+</v-layout>
+</v-container>
 
 ## History
 
