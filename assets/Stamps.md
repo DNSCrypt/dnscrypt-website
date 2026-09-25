@@ -246,9 +246,9 @@ Scopes are permitted.
 
 DNS stamps are known to be used in the following applications:
 
-- [dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy)
+- [dnscrypt-proxy](https://github.com/DNSCrypt/dnscrypt-proxy)
 - [dnscrypt-wrapper](https://github.com/cofyc/dnscrypt-wrapper)
-- [encrypted-dns-server](https://github.com/jedisct1/encrypted-dns-server)
+- [encrypted-dns-server](https://github.com/DNSCrypt/encrypted-dns-server)
 - [simple dnscrypt](https://github.com/instantsc/SimpleDnsCrypt)
 - [yourfriendlydns](https://github.com/softwareengineer1/YourFriendlyDNS)
 - [adguard](https://adguard.com)
@@ -258,7 +258,7 @@ DNS stamps are known to be used in the following applications:
 
 ### Servers lists as DNS stamps
 
-- [Quad9 resolvers list](https://www.quad9.net/quad9-resolvers.md)
+- [Quad9 resolvers list](https://quad9.net/dnscrypt/quad9-resolvers.md)
 - [CleanBrowsing DNSCrypt](https://cleanbrowsing.org/dnscrypt) and [DoH](https://cleanbrowsing.org/dnsoverhttps) servers
 - [Public resolvers list](https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md)
 - [OpenNIC resolvers list](https://download.dnscrypt.info/resolvers-list/v3/opennic.md)
